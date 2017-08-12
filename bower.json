@@ -1,0 +1,32 @@
+{
+  "name": "tfg",
+  "authors": [
+    "Pablo <pablo95lp@gmail.com>"
+  ],
+  "description": "Tfg pablo website",
+  "main": "public/index.php",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "tfg pablo",
+    "website"
+  ],
+  "license": "MIT",
+  "homepage": "http://tfgpablo.es",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "3.1.1"
+  },
+  "devDependencies": {
+  }
+
+}
