@@ -9,9 +9,18 @@
 @endsection
 
 @section('content')
-    <div id="form-layout" class="container">
+    <div id="container-aux" class="container-fluid container-full-height">
         <div class="row row-eq-height row-full-height">
-            <div id="form-wrapper" class="col-md-9">
+            <div class="col-xs-9 form-wrapper"></div>
+            <div class="col-xs-3 members-sidebar"></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12" style="height: 70px; background: #ff2c0e"></div>
+        </div>
+        <div class="row row-eq-height">
+            <div class="col-xs-9 form-wrapper">
                 <ul id="forms">
                     <li id="add-form" class="form-thumbnail" data-toggle="modal" data-target="#add-form-modal">
                         <div class="form-caption">
@@ -31,7 +40,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div id="members-sidebar" class="col-md-3">
+            <div class="col-xs-3 members-sidebar">
                 2 of 3
             </div>
         </div>
