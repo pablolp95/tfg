@@ -22,4 +22,12 @@ class Workspace extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * Get the forms for the workspace
+     */
+    public function forms()
+    {
+        return $this->hasMany('App\Form');
+    }
 }

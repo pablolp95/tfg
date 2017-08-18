@@ -1,0 +1,123 @@
+/* ---------------------------------------------------
+                    NAV STYLE
+----------------------------------------------------- */
+.navbar-brand {
+    display: block;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    position: absolute;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------------------
+                    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+    background: #F8F8F8;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    color: #777777;
+    height: 100vh;
+    left: -350px;
+    position: fixed;
+    top: 50px;
+    transition: all 0.3s;
+    width: 350px;
+    z-index: 999;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar-wrapper {
+    height: 100vh;
+    position: relative;
+}
+
+#dismiss {
+    background: #F8F8F8;
+    border: 1px solid #777777;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 35px;
+    line-height: 35px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: 10px;
+    transition: all 0.3s;
+    width: 35px;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+#dismiss:hover {
+    background: #FFF;
+    color: #5BC0DE;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: 998;
+}
+
+#sidebar .sidebar-header {
+    background: #F8F8F8;
+    padding: 20px;
+    position: relative;
+}
+
+#workspace-links {
+    height: 60%;
+    max-height: 60%;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    position:relative;
+}
+
+.workspace-item {
+    padding: 20px;
+    position: relative;
+}
+
+.workspace-item:hover {
+    cursor: pointer;
+}
+
+.divisor {
+    border-top: 1px solid #d7d7d7;
+    border-bottom: 1px solid #fffeff;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+#add-workspace {
+    position: relative;
+}
+
+#add-workspace #add-workspace-button {
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+.workspace-item-wrapper {
+    padding: 5px;
+}
+
+.workspace-actions {
+    display: inline-block;
+    float: right;
+}
+
+.workspace-actions .delete-workspace {
+    padding: 4px;
+}

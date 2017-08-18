@@ -17,8 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('workspaces/{id}', ['as' => 'workspaces', 'uses' => 'WorkspaceController@show']);
+//Route::get('workspaces/{id}', ['as' => 'workspaces', 'uses' => 'WorkspaceController@show']);
 Route::get('admin', ['as' => 'workspaces', 'uses' => function() {
     return view('intranet.dashboard');
 }]);
+
+Route::resource('workspaces', 'WorkspaceController', ['only' => [
+    'store', 'show', 'update', 'destroy'
+]]);
+Route::resource('forms', 'FormController', ['only' => [
+    'store', 'show', 'update', 'destroy'
+]]);

@@ -2,23 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Workspace;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Form;
 
-class WorkspaceController extends Controller
+class FormController extends Controller
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -47,11 +36,10 @@ class WorkspaceController extends Controller
      */
     public function store(Request $request)
     {
-        $workspace = new Workspace();
-        $workspace->user_id = Auth::id();
-        $this->silentSave($workspace,$request);
+        $form = new Form();
+        $this->silentSave($form,$request);
 
-        return redirect()->route('workspaces.show',[$workspace->id]);
+        return redirect()->route('forms.show',[$form->id]);
     }
 
     /**
@@ -62,10 +50,7 @@ class WorkspaceController extends Controller
      */
     public function show($id)
     {
-        $workspace = Workspace::findOrFail($id);
-        if(Auth::id() == $workspace->user_id)
-            return view('workspace.workspace', compact('workspace'));
-        abort(403, 'Unauthorized action.');
+        return 'asa';
     }
 
     /**
@@ -99,25 +84,26 @@ class WorkspaceController extends Controller
      */
     public function destroy($id)
     {
-        $workspace = Workspace::findOrFail($id);
-        $workspace->delete();
+        $form = Form::findOrFail($id);
+        $form->delete();
         return redirect()->route('login');
     }
 
     /**
      * Basic save operation used for update & store.
      *
-     * @param $workspace
+     * @param $form
      * @param Request $request
      * @param bool $save
      * @return mixed
      */
-    public function silentSave(&$workspace, Request $request, $save = true)
+    public function silentSave(&$form, Request $request, $save = true)
     {
-        $workspace->last_update_user_id = Auth::id();
-        $workspace->name = $request->input('name');
+        $form->last_update_user_id = Auth::id();
+        $form->workspace_id = $request->input('workspace_id');
+        $form->name = $request->input('name');
 
-        ($save) ? $workspace->save() : null;
-        return $workspace;
+        ($save) ? $form->save() : null;
+        return $form;
     }
 }

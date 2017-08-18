@@ -18,5 +18,11 @@ class WorkspacesTableSeeder extends Seeder
         $workspace->last_update_user_id = '3';
         $workspace->save();
 
+        $workspace = new Workspace();
+        $workspace->name = 'My workspace 2';
+        $workspace->user_id = '3';
+        $workspace->last_update_user_id = '3';
+        $workspace->save();
+
     }
 }

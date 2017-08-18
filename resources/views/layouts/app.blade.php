@@ -11,22 +11,29 @@
     <title>@yield('title')</title>
 
     <!-- Styles -->
-    <link href="/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/nav-sidebar.css') }}" rel="stylesheet" type="text/css">
     @yield('css')
 </head>
 <body>
-    <div id="app">
-        @yield('nav')
-
-        @yield('content')
-
-        @yield('footer')
+    <div id="wrapper">
+        <div id="header">
+            @include('nav')
+        </div>
+        <div id="content">
+            @yield('content')
+        </div>
+        <div id="footer">
+            @yield('footer')
+        </div>
     </div>
 
     <!-- Scripts -->
-    <script src="/components/jquery/dist/jquery.min.js"></script>
-    <script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ asset('components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ asset('js/tfg.js') }}"></script>
+    @yield('script')
 </body>
 </html>

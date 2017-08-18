@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWorkspacesTable extends Migration
+class CreateFormsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreateWorkspacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('workspaces', function (Blueprint $table) {
+        Schema::create('forms', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->integer('user_id')->index()->unsigned();
+            $table->integer('workspace_id')->index()->unsigned();
             $table->integer('last_update_user_id')->index()->unsigned();
 
             $table->string('name');
         });
 
-        Schema::table('workspaces', function(Blueprint $table) {
-            $table->foreign('user_id')
+        Schema::table('forms', function(Blueprint $table) {
+            $table->foreign('workspace_id')
                 ->references('id')
-                ->on('users')
+                ->on('workspaces')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
@@ -45,6 +45,6 @@ class CreateWorkspacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('workspaces');
+        Schema::dropIfExists('forms');
     }
 }

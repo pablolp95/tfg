@@ -1,0 +1,79 @@
+/* ---------------------------------------------------
+                    NAV STYLE
+----------------------------------------------------- */
+#form-layout {
+    bottom:0;
+    position: absolute;
+    top:50px;
+    width: 100%;
+}
+
+#form-wrapper {
+    background: #F1F1F1;
+
+}
+
+ul.forms {
+    list-style: none;
+}
+
+li.form-thumbnail {
+    background: white;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    display: inline-block;
+    height: 230px;
+    margin: 10px;
+    position: relative;
+    width: 200px;
+}
+
+.form-thumbnail:hover {
+    cursor: pointer;
+}
+
+.form-thumbnail:hover .form-actions {
+    opacity: 1;
+}
+
+.form-thumbnail .form-caption {
+    color: #454545;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#add-form {
+    background: #6180be;
+}
+
+#add-form:hover {
+    background: #78b0ff;
+}
+
+.form-actions {
+    bottom: 0;
+    left: 50%;
+    margin-bottom: 15px;
+    position: absolute;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -webkit-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+}
+
+.form-actions .form-action {
+    padding: 5px;
+}
+
+/* ---------------------------------------------------
+                    MEMBERS SIDEBAR STYLE
+----------------------------------------------------- */
+
+#members-sidebar {
+    background: #D8DDDD;
+}

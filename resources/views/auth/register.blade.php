@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.layout')
 
 @section('title')
     TFG Pablo - Registro
