@@ -8,32 +8,25 @@
         </div>
 
         <!-- Left Side Of Navbar -->
-        <ul class="nav navbar-nav navbar-left">
-            <li>
-                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" data-toggle="tooltip" data-placement="bottom" title="Espacios de trabajo">
-                    <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-                    <span id="workspace-counter">{{ Auth::user()->workspaces->count() }}</span>
-                </button>
-            </li>
-        </ul>
+        <div class="nav navbar-nav navbar-left">
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" data-toggle="tooltip" data-placement="bottom" title="Espacios de trabajo">
+                <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+                <span id="workspace-counter">{{ Auth::user()->workspaces->count() }}</span>
+            </button>
+        </div>
 
         <!-- Right Side Of Navbar -->
-        <ul class="nav navbar-nav navbar-right">
-            <!-- Authentication Links -->
-            @if (Auth::guest())
-                <li><a href="{{ route('login') }}">Login</a></li>
-                <li><a href="{{ route('register') }}">Registro</a></li>
-            @else
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
-
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu">
                         <li>
                             <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                             document.getElementById('logout-form').submit();">
                                 Salir
                             </a>
 
@@ -43,8 +36,8 @@
                         </li>
                     </ul>
                 </li>
-            @endif
-        </ul>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -60,13 +53,14 @@
         </div>
         <div id="workspace-links">
             <ul class="list-unstyled">
-                @foreach(Auth::user()->workspaces as $workspace)
-                    <li class="workspace-item" value="{{$workspace->id}}">
+                @foreach(Auth::user()->workspaces as $workspace_item)
+                    <li class="workspace-item @if($workspace->id == $workspace_item->id) active @endif" value="{{$workspace_item->id}}">
                         <div class="workspace-item-wrapper">
                             <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-                            <span>{{ $workspace->name }}</span>
+                            <span>{{ $workspace_item->name }}</span>
                             <div class="workspace-actions">
                                 <span class="delete-workspace glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Eliminar"></span>
+                                <span class="badge">{{ $workspace_item->forms->count() }}</span>
                             </div>
                             <div class="divisor"></div>
                         </div>

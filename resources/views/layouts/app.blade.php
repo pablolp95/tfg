@@ -21,6 +21,7 @@
             @include('nav')
         </div>
         <div id="content">
+            @yield('subnav')
             @yield('content')
         </div>
         <div id="footer">

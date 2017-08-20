@@ -37,5 +37,19 @@ html, body {
 }
 
 #container-aux {
-    z-index: 0;
+    z-index: -1;
+}
+
+.divisor {
+    border-top: 1px solid #d7d7d7;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+.subnav {
+    height: 70px;
+    background: #0083e6;
+    padding: 0 83.5px;
 }

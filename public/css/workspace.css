@@ -3,6 +3,7 @@
 ----------------------------------------------------- */
 .form-wrapper {
     background: #F1F1F1;
+    border-right: 1px solid #c5c5c5;
 }
 
 ul.forms {
@@ -38,11 +39,15 @@ li.form-thumbnail {
 }
 
 #add-form {
-    background: #6180be;
+    background: #00ff6d;
 }
 
 #add-form:hover {
-    background: #78b0ff;
+    background: #33ff8a;
+}
+
+#add-form .form-caption {
+    color: #FFFFFF;
 }
 
 .form-actions {
@@ -67,4 +72,76 @@ li.form-thumbnail {
 ----------------------------------------------------- */
 .members-sidebar {
     background: #D8DDDD;
+    padding: 0;
+    position: relative;
+}
+
+#members-header {
+    padding: 20px;
+    position: relative;
+}
+
+.members-sidebar .divisor {
+    border-top: 1px solid #c5c5c5;
+}
+
+#members-list {
+    overflow-y: auto;
+    position:relative;
+}
+
+.member-item {
+    padding: 20px;
+    position: relative;
+}
+
+/* ---------------------------------------------------
+                    SUBNAV STYLE
+----------------------------------------------------- */
+#layout-workspace-name {
+    position: relative;
+    float: left;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+#workspace-name {
+    font-size: 1.3em;
+    color: #FFFFFF;
+}
+
+#workspace-name:hover {
+    cursor: text;
+    text-decoration: underline;
+}
+
+#submit-name {
+    color: white;
+    padding: 7px;
+    background: #00D159;
+    border-radius: 5px;
+}
+
+#cancel-name {
+    color: white;
+    padding: 7px;
+    background: #d10003;
+    border-radius: 5px;
+}
+
+#submit-name:hover, #cancel-name:hover {
+    cursor: pointer;
+}
+
+#workspace-message {
+    position: relative;
+    float: left;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 15px;
+}
+
+#workspace-message .alert {
+    margin-bottom: 0px;
+    padding: 10px;
 }

@@ -86,7 +86,6 @@ class FormController extends Controller
     {
         $form = Form::findOrFail($id);
         $form->delete();
-        return redirect()->route('login');
     }
 
     /**

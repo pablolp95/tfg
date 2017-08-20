@@ -64,7 +64,7 @@ class WorkspaceController extends Controller
     {
         $workspace = Workspace::findOrFail($id);
         if(Auth::id() == $workspace->user_id)
-            return view('workspace.workspace', compact('workspace'));
+            return view('workspaces.workspace', compact('workspace'));
         abort(403, 'Unauthorized action.');
     }
 
@@ -88,7 +88,9 @@ class WorkspaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id = $request['id'];
+        $workspace = Workspace::findOrFail($id);
+        $this->silentSave($workspace, $request);
     }
 
     /**
