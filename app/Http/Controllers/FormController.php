@@ -37,6 +37,7 @@ class FormController extends Controller
     public function store(Request $request)
     {
         $form = new Form();
+        $form->workspace_id = $request->input('workspace_id');
         $this->silentSave($form,$request);
 
         return redirect()->route('forms.show',[$form->id]);
@@ -50,7 +51,10 @@ class FormController extends Controller
      */
     public function show($id)
     {
-        return 'asa';
+        $form = Form::findOrFail($id);
+        if(Auth::id() == $form->Workspace->user_id)
+            return view('forms.build', compact('form'));
+        abort(403, 'Unauthorized action.');
     }
 
     /**
@@ -73,7 +77,8 @@ class FormController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $form = Form::findOrFail($id);
+        $this->silentSave($form, $request);
     }
 
     /**
@@ -99,10 +104,51 @@ class FormController extends Controller
     public function silentSave(&$form, Request $request, $save = true)
     {
         $form->last_update_user_id = Auth::id();
-        $form->workspace_id = $request->input('workspace_id');
         $form->name = $request->input('name');
 
         ($save) ? $form->save() : null;
         return $form;
+    }
+
+    /**
+     * Display the design view of the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getDesign($id)
+    {
+        $form = Form::findOrFail($id);
+        if(Auth::id() == $form->Workspace->user_id)
+            return view('forms.design', compact('form'));
+        abort(403, 'Unauthorized action.');
+    }
+
+    /**
+     * Display the share view of the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getShare($id)
+    {
+        $form = Form::findOrFail($id);
+        if(Auth::id() == $form->Workspace->user_id)
+            return view('forms.share', compact('form'));
+        abort(403, 'Unauthorized action.');
+    }
+
+    /**
+     * Display the analyze view of the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getAnalyze($id)
+    {
+        $form = Form::findOrFail($id);
+        if(Auth::id() == $form->Workspace->user_id)
+            return view('forms.analyze', compact('form'));
+        abort(403, 'Unauthorized action.');
     }
 }

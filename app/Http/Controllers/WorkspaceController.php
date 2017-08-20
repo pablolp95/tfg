@@ -88,7 +88,6 @@ class WorkspaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $id = $request['id'];
         $workspace = Workspace::findOrFail($id);
         $this->silentSave($workspace, $request);
     }

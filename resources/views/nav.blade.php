@@ -54,7 +54,7 @@
         <div id="workspace-links">
             <ul class="list-unstyled">
                 @foreach(Auth::user()->workspaces as $workspace_item)
-                    <li class="workspace-item @if($workspace->id == $workspace_item->id) active @endif" value="{{$workspace_item->id}}">
+                    <li class="workspace-item @isset($workspace) @if($workspace->id == $workspace_item->id) active @endif @endisset" value="{{$workspace_item->id}}">
                         <div class="workspace-item-wrapper">
                             <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
                             <span class="workspace-item-name">{{ $workspace_item->name }}</span>

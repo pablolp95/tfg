@@ -12,11 +12,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="subnav col-xs-12">
-                <div id="layout-workspace-name">
-                    <span id="workspace-name">{{ $workspace->name }}</span>
+                <div id="layout-name">
+                    <span id="resource-name">{{ $workspace->name }}</span>
                     <span class="glyphicon glyphicon-pencil" style="color: white"></span>
                 </div>
-                <div id="workspace-message">
+                <div id="received-message">
                 </div>
             </div>
         </div>
@@ -111,4 +111,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/workspace.js') }}"></script>
 @endsection

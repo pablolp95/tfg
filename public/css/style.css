@@ -1,3 +1,6 @@
+/* ---------------------------------------------------
+                    GENERAL STYLE
+----------------------------------------------------- */
 html, body {
     height: 100%;
     margin: 0;
@@ -48,8 +51,59 @@ html, body {
     width: 100%;
 }
 
+/* ---------------------------------------------------
+                    SUBNAV STYLE
+----------------------------------------------------- */
 .subnav {
     height: 70px;
     background: #0083e6;
     padding: 0 83.5px;
+}
+
+#layout-name {
+    position: relative;
+    float: left;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+#resource-name {
+    font-size: 1.3em;
+    color: #FFFFFF;
+}
+
+#resource-name:hover {
+    cursor: text;
+    text-decoration: underline;
+}
+
+#submit-name {
+    color: white;
+    padding: 7px;
+    background: #00D159;
+    border-radius: 5px;
+}
+
+#cancel-name {
+    color: white;
+    padding: 7px;
+    background: #d10003;
+    border-radius: 5px;
+}
+
+#submit-name:hover, #cancel-name:hover {
+    cursor: pointer;
+}
+
+#received-message {
+    position: relative;
+    float: left;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 15px;
+}
+
+#received-message .alert {
+    margin-bottom: 0px;
+    padding: 10px;
 }
