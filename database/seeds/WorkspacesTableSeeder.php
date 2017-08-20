@@ -13,15 +13,21 @@ class WorkspacesTableSeeder extends Seeder
     public function run()
     {
         $workspace = new Workspace();
-        $workspace->name = 'My workspace';
+        $workspace->name = 'Mi espacio';
         $workspace->user_id = '3';
         $workspace->last_update_user_id = '3';
         $workspace->save();
 
         $workspace = new Workspace();
-        $workspace->name = 'My workspace 2';
+        $workspace->name = 'Mi espacio 2';
         $workspace->user_id = '3';
         $workspace->last_update_user_id = '3';
+        $workspace->save();
+
+        $workspace = new Workspace();
+        $workspace->name = 'Mi espacio';
+        $workspace->user_id = '4';
+        $workspace->last_update_user_id = '4';
         $workspace->save();
 
     }

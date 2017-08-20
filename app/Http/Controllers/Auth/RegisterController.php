@@ -96,7 +96,7 @@ class RegisterController extends Controller
         $workspace = Workspace::create([
             'user_id' => $user->id,
             'last_update_user_id' => $user->id,
-            'name' => 'My workspace'
+            'name' => 'Mi espacio'
         ]);
 
         $user->default_workspace = $workspace->id;

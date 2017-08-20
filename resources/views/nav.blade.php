@@ -57,7 +57,7 @@
                     <li class="workspace-item @if($workspace->id == $workspace_item->id) active @endif" value="{{$workspace_item->id}}">
                         <div class="workspace-item-wrapper">
                             <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-                            <span>{{ $workspace_item->name }}</span>
+                            <span class="workspace-item-name">{{ $workspace_item->name }}</span>
                             <div class="workspace-actions">
                                 <span class="delete-workspace glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Eliminar"></span>
                                 <span class="badge">{{ $workspace_item->forms->count() }}</span>

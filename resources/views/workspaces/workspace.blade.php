@@ -61,7 +61,7 @@
                     <ul class="list-unstyled">
                         <li class="member-item">
                             <div class="member-item-wrapper">
-                                <span>Pablo</span>
+                                <span>En desarrollo...</span>
                                 <div class="divisor"></div>
                             </div>
                         </li>

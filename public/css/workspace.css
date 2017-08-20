@@ -12,8 +12,8 @@ ul.forms {
 
 li.form-thumbnail {
     background: white;
-    border: 1px solid #adadad;
     border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     display: inline-block;
     height: 230px;
     margin: 10px;
@@ -39,7 +39,7 @@ li.form-thumbnail {
 }
 
 #add-form {
-    background: #00ff6d;
+    background: #00d75c;
 }
 
 #add-form:hover {

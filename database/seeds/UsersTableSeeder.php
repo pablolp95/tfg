@@ -38,5 +38,13 @@ class UsersTableSeeder extends Seeder
         $user->default_workspace = '1';
         $user->save();
         $user->roles()->attach($roleUser);
+
+        $user = new User();
+        $user->name = 'Marcelino';
+        $user->email = 'mcabrera@ugr.es';
+        $user->password = bcrypt('marcelino');
+        $user->default_workspace = '3';
+        $user->save();
+        $user->roles()->attach($roleUser);
     }
 }

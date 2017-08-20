@@ -37,6 +37,6 @@ Route::put('forms/{id}/design', ['as' => 'forms.design.update', 'uses' => 'FormC
 
 
 
-Route::resource('forms', 'FormController', ['only' => [
+/*Route::resource('forms', 'FormController', ['only' => [
     'store', 'show', 'update', 'destroy'
-]]);
+]]);*/
