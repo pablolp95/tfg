@@ -48,3 +48,17 @@
 .forms-links-wrapper ul li a:hover {
     text-decoration: none;
 }
+
+/* ---------------------------------------------------
+                    CONTENT STYLE
+----------------------------------------------------- */
+.sidebar {
+    background: #D8DDDD;
+    padding: 0;
+    position: relative;
+}
+
+.form-structure {
+    background: #F1F1F1;
+    border-left: 1px solid #c5c5c5;
+}

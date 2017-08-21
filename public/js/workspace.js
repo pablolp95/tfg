@@ -1,9 +1,9 @@
 $(document).ready(function(){
     var resource_name = $('#resource-name').html();
 
-    /****************************/
-    /*        WORKSPACE         */
-    /****************************/
+    /* ---------------------------------------------------
+                    WORKSPACE
+    ----------------------------------------------------- */
     //Devuelve la vista del formulario seleccionado
     $('.form-item').on('click', function () {
         window.location =  'http://' + window.location.host + '/forms/' + $(this).val() + '/build';
@@ -60,9 +60,9 @@ $(document).ready(function(){
         });
     });
 
-    /****************************/
-    /*        SUBNAV            */
-    /****************************/
+    /* ---------------------------------------------------
+                    SUBNAV
+    ----------------------------------------------------- */
     //Muestra el input para cambiar el nombre del workspace actual
     $(document).on('click', '#resource-name', function () {
         $('#layout-name').empty();

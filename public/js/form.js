@@ -1,9 +1,9 @@
 $(document).ready(function(){
     var resource_name = $('#resource-name').html();
 
-    /****************************/
-    /*        SUBNAV            */
-    /****************************/
+    /* ---------------------------------------------------
+                    SUBNAV
+    ----------------------------------------------------- */
     //Muestra el input para cambiar el nombre del workspace actual
     $(document).on('click', '#resource-name', function () {
         $('#layout-name').empty();
