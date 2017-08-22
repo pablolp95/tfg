@@ -50,14 +50,43 @@
 }
 
 /* ---------------------------------------------------
-                    CONTENT STYLE
+                   QUESTIONS SIDEBAR STYLE
 ----------------------------------------------------- */
 .sidebar {
     background: #D8DDDD;
-    padding: 0;
+    /*padding: 10px 0px 10px 10px;*/
     position: relative;
+    padding: 0;
 }
 
+.question-btn-item {
+    display: inline-block;
+    margin-bottom: 8px;
+    margin-right:10px;
+}
+
+.btn-question {
+    background-color: #f6f6f6;
+    width: 138px;
+    font-size: 0.9em;
+    text-align: left;
+    padding: 9px 10px;
+    border: none;
+    border-radius: 0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    margin: 0px 15px 10px 0px;
+
+}
+
+.btn-question:hover {
+    background-color: #ffffff;
+}
+
+/* ---------------------------------------------------
+                   FORM STRUCTURE STYLE
+----------------------------------------------------- */
 .form-structure {
     background: #F1F1F1;
     border-left: 1px solid #c5c5c5;

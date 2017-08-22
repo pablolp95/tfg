@@ -16,6 +16,8 @@ class CreateShortTextsTable extends Migration
         Schema::create('short_texts', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->integer('max_num_characters')->nullable();
         });
     }
 

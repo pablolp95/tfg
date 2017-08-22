@@ -16,6 +16,8 @@ class CreateLongTextsTable extends Migration
         Schema::create('long_texts', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->integer('max_num_characters')->nullable();
         });
     }
 

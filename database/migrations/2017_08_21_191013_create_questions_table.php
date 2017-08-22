@@ -17,8 +17,8 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('text');
-            $table->string('description');
+            $table->text('text');
+            $table->text('description')->nullable();
             $table->boolean('required');
 
             $table->integer('form_id')->index()->unsigned();
