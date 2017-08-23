@@ -53,67 +53,63 @@
     </div>
     <div class="container-fluid">
         <div class="row row-eq-height">
-            <div class="col-xs-3">
-                <div class="row">
-                    <div class="col-xs-12" style="padding-right: 0">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                            <span>Respuesta corta</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
-                            <span>Respuesta larga</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            <span>Texto</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                            <span>Desplegable</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                            <span>Email</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            <span>Fecha</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                            <span>Legal</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                            <span>Página web</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-                            <span>Elección múltiple</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                            <span>Grupo</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                            <span>Si/No</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span>Puntuación</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
-                            <span>Escala de opinión</span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                            <span>Número</span>
-                        </button>
-                    </div>
-                </div>
+            <div id="question-options" class="col-xs-3">
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                    <span>Respuesta corta</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
+                    <span>Respuesta larga</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    <span>Texto</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    <span>Desplegable</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    <span>Email</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    <span>Fecha</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                    <span>Legal</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                    <span>Página web</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    <span>Elección múltiple</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                    <span>Grupo</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                    <span>Si/No</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <span>Puntuación</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+                    <span>Escala de opinión</span>
+                </button>
+                <button type="button" class="btn btn-default btn-question">
+                    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                    <span>Número</span>
+                </button>
                 <!--<ul class="list-unstyled">
                     <li class="question-btn-item">
                         <button type="button" class="btn btn-default btn-question">
