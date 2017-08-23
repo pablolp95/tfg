@@ -52,41 +52,38 @@
 /* ---------------------------------------------------
                    QUESTIONS SIDEBAR STYLE
 ----------------------------------------------------- */
-.sidebar {
-    background: #D8DDDD;
-    /*padding: 10px 0px 10px 10px;*/
-    position: relative;
-    padding: 0;
-}
-
-.question-btn-item {
-    display: inline-block;
-    margin-bottom: 8px;
-    margin-right:10px;
-    min-width: 2%;
-}
-
 #question-options {
     padding-top: 20px;
     padding-right: 0;
+    position: absolute;
+    min-height: 100%;
 }
 
-.btn-question {
+.sidebar {
+    background: #D8DDDD;
+    position: relative;
+}
+
+.question-type {
     background-color: #f6f6f6;
     min-width: 46%;
     font-size: 0.9em;
     text-align: left;
     padding: 9px 10px;
     border: none;
-    border-radius: 0;
+    border-radius: 0 !important;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     margin: 0px 9px 10px 0px;
-
+    float: left;
 }
 
-.btn-question:hover {
+.question-type [draggable=true] {
+    -khtml-user-drag: element;
+}
+
+.question-type :hover {
     background-color: #ffffff;
 }
 
@@ -96,4 +93,30 @@
 .form-structure {
     background: #F1F1F1;
     border-left: 1px solid #c5c5c5;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    overflow: auto !important;
+}
+
+#form-questions {
+    position: relative;
+    overflow: auto;
+    list-style-type: none;
+}
+
+#form-questions .drag-here {
+    clear: both;
+    position: relative;
+    border: 1px dashed #999999;
+    opacity: 0.9;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    background: #eeeeee;
+    height: 145px;
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1;
 }

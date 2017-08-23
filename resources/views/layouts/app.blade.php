@@ -20,8 +20,11 @@
         <div id="header">
             @include('nav')
         </div>
-        <div id="content">
+        <div id="subnav">
             @yield('subnav')
+        </div>
+        <div id="content">
+
             @yield('content')
         </div>
         <div id="footer">

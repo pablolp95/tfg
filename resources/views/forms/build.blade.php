@@ -45,160 +45,74 @@
 @endsection
 
 @section('content')
-    <div id="container-aux" class="container-fluid container-full-height">
-        <div class="row row-eq-height row-full-height">
-            <div class="col-xs-3 sidebar"></div>
-            <div class="col-xs-9 form-structure"></div>
-        </div>
-    </div>
     <div class="container-fluid">
         <div class="row row-eq-height">
-            <div id="question-options" class="col-xs-3">
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                    <span>Respuesta corta</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
-                    <span>Respuesta larga</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                    <span>Texto</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                    <span>Desplegable</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    <span>Email</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                    <span>Fecha</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                    <span>Legal</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                    <span>Página web</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-                    <span>Elección múltiple</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                    <span>Grupo</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                    <span>Si/No</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    <span>Puntuación</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
-                    <span>Escala de opinión</span>
-                </button>
-                <button type="button" class="btn btn-default btn-question">
-                    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                    <span>Número</span>
-                </button>
-                <!--<ul class="list-unstyled">
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                            <span>Respuesta corta</span>
-                        </button>
+            <div id="question-options" class="col-xs-3 sidebar">
+                <ul class="list-group question-types">
+                    <li class="list-group-item question-type" data-id="0" draggable="true">
+                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                        Respuesta corta
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
-                            <span>Respuesta larga</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="1" draggable="true">
+                        <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
+                        Respuesta larga
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            <span>Texto</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="2" draggable="true">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        Texto
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                            <span>Desplegable</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="3" draggable="true">
+                        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                        Desplegable
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                            <span>Email</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="4" draggable="true">
+                        <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        Email
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            <span>Fecha</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="5" draggable="true">
+                        <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        Fecha
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                            <span>Legal</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="6" draggable="true">
+                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                        Legal
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                            <span>Página web</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="7" draggable="true">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        Página web
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-                            <span>Elección múltiple</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="8" draggable="true">
+                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                        Elección múltiple
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                            <span>Grupo</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="9" draggable="true">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                        Múltiples imágenes
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                            <span>Si/No</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="10" draggable="true">
+                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                        Si/No
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span>Puntuación</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="11" draggable="true">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        Puntación
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
-                            <span>Escala de opinión</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="12" draggable="true">
+                        <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+                        Escala de opinión
                     </li>
-                    <li class="question-btn-item">
-                        <button type="button" class="btn btn-default btn-question">
-                            <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                            <span>Número</span>
-                        </button>
+                    <li class="list-group-item question-type" data-id="13" draggable="true">
+                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                        Número
                     </li>
-                </ul>-->
+                </ul>
             </div>
             <div class="col-xs-9 form-structure">
-
+                <ul id="form-questions" style="padding: 5px" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <li class="drag-here">
+                        <div>Arrastra y suelta las preguntas aquí</div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -207,4 +121,5 @@
 @section('script')
     <script>var form_id = "{{$form->id}}"</script>
     <script src="{{ asset('js/form.js') }}"></script>
+    <script src="{{ asset('js/jquery-sortable-min.js') }}"></script>
 @endsection
