@@ -20,6 +20,8 @@ class CreateQuestionsTable extends Migration
             $table->text('text');
             $table->text('description')->nullable();
             $table->boolean('required');
+            $table->text('icon');
+
 
             $table->integer('form_id')->index()->unsigned();
             $table->integer('last_update_user_id')->index()->unsigned();

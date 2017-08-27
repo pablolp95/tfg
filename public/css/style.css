@@ -57,6 +57,22 @@ html, body {
     width: 100%;
 }
 
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+textarea {
+    resize: none;
+}
+
 /* ---------------------------------------------------
                     SUBNAV STYLE
 ----------------------------------------------------- */

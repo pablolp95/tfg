@@ -42,9 +42,7 @@ $(document).ready(function(){
             url: '/forms/' + id,
             data: {
                 _method: 'delete',
-                _token: token,
-                id: id,
-                name: name
+                _token: token
             },
             success: function(ms) {
                 $( ".form-item[value="+id+"]" ).fadeOut(1000, function(){
