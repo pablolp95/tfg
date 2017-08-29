@@ -30,7 +30,7 @@ class FormController extends Controller
     {
         $form = new Form();
         $form->workspace_id = $request->input('workspace_id');
-        $this->silentSave($form,$request);
+        $this->silentSave($form, $request);
 
         return redirect()->route('forms.show',[$form->id]);
     }
@@ -131,60 +131,5 @@ class FormController extends Controller
         if(Auth::id() == $form->Workspace->user_id)
             return view('forms.analyze', compact('form'));
         abort(403, 'Unauthorized action.');
-    }
-
-    /**
-     * Display the analyze view of the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function getModalType(Request $request, $id)
-    {
-        switch ($id) {
-            case 0:
-                return view('forms.modals.shortText');
-                break;
-            case 1:
-                return view('forms.modals.longText');
-                break;
-            case 2:
-                return view('forms.modals.declaration');
-                break;
-            case 3:
-                return view('forms.modals.dropdown');
-                break;
-            case 4:
-                return view('forms.modals.email');
-                break;
-            case 5:
-                return view('forms.modals.date');
-                break;
-            case 6:
-                return view('forms.modals.legal');
-                break;
-            case 7:
-                return view('forms.modals.web');
-                break;
-            case 8:
-                return view('forms.modals.multipleChoices');
-                break;
-            case 9:
-                return view('forms.modals.multipleImages');
-                break;
-            case 10:
-                return view('forms.modals.yesNo');
-                break;
-            case 11:
-                return view('forms.modals.rating');
-                break;
-            case 12:
-                return view('forms.modals.scale');
-                break;
-            case 13:
-                return view('forms.modals.number');
-                break;
-        }
-        return Response::HTTP_INTERNAL_SERVER_ERROR;
     }
 }

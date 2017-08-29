@@ -24,6 +24,7 @@ class LongText extends Model
      */
     public function silentSave(Request $request, $save = true)
     {
+        $this->required = $request->input('required');
         $this->max_num_characters = $request->input('max_num_characters');
 
         ($save) ? $this->save() : null;

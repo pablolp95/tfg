@@ -5,6 +5,11 @@
             <h4 class="modal-title" id="myModalLabel">Texto</h4>
         </div>
         <div class="modal-body">
+            {!! Form::open(["method" => "post", "route" => "questions.store", "id" => "question-form"]) !!}
+            <input type="hidden" name="type" value="Declaration">
+            <input id="form_id" type="hidden" name="form_id" value="">
+            <input id="icon" type="hidden" name="icon" value="">
+
             <div class="question-field">
                 {!! Form::label("text", "Texto") !!}
                 {!! Form::textarea("text", null, ["id" => "text", "class" => "form-control","rows" => "4"]) !!}
@@ -16,9 +21,10 @@
             </div>
 
             <div class="question-field">
-                {!! Form::label("button", "Botón") !!}
-                {!! Form::text("button", null, ["id" => "button"]) !!}
+                {!! Form::label("button_text", "Texto del botón") !!}
+                {!! Form::text("button_text", null, ["id" => "button_text"]) !!}
             </div>
+            {!! Form::close() !!}
         </div>
         <div class="modal-footer">
             <button id="cancel-question" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

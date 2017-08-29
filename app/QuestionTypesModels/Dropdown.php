@@ -1,11 +1,11 @@
 <?php
 
-namespace App\QuestionTypesModels;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class ShortText extends Model
+class Dropdown extends Model
 {
     /**
      * Get the question model.
@@ -13,6 +13,14 @@ class ShortText extends Model
     public function question()
     {
         return $this->morphOne('App\Question', 'typable');
+    }
+
+    /**
+     * Get the options.
+     */
+    public function options()
+    {
+        return $this->morphMany('App\QuestionOption', 'typable');
     }
 
     /**
@@ -24,7 +32,6 @@ class ShortText extends Model
      */
     public function silentSave(Request $request, $save = true)
     {
-        $this->max_num_characters = $request->input('max_num_characters');
         $this->required = $request->input('required');
 
         ($save) ? $this->save() : null;

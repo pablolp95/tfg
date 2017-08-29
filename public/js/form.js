@@ -1,5 +1,16 @@
 $(document).ready(function(){
     var resource_name = $('#resource-name').html();
+    sortable('#form-questions',{
+        items: '.question-item',
+        forcePlaceholderSize: true
+    });
+
+    sortable('#question-options',{
+        items: '.option-item',
+        handle: '.move-option',
+        forcePlaceholderSize: true
+    });
+
 
     /* ---------------------------------------------------
                     SUBNAV
@@ -66,8 +77,7 @@ $(document).ready(function(){
             '   <span class="question-label">' + $(this).data('label') + '</span>' +
             '</div>' +
             '<div class="question-actions">' +
-            '   <span class="move-up-question glyphicon glyphicon-arrow-up" aria-hidden="true"></span>' +
-            '   <span class="move-down-question glyphicon glyphicon-arrow-down" aria-hidden="true"></span>' +
+            '   <span class="move-up-question glyphicon glyphicon-move" aria-hidden="true"></span>' +
             '   <span class="delete-question glyphicon glyphicon-trash" aria-hidden="true" ></span>' +
             '</div>' +
             '<div class="loading-question">' +
@@ -79,7 +89,7 @@ $(document).ready(function(){
         //Petición del contenido del modal según el tipo de pregunta y quitamos el icono de carga
         $.ajax({
             type: 'get',
-            url: '/forms/type/' + $(this).data('id'),
+            url: '/questions/type/' + $(this).data('id'),
             data: {
                 _token: $('[name="csrf-token"]').attr('content'),
             },
@@ -93,6 +103,29 @@ $(document).ready(function(){
             }
         });
 
+        sortable('#form-questions',{
+            forcePlaceholderSize: true
+        });
+
+    });
+
+    sortable('#form-questions')[0].addEventListener('sortupdate', function(e) {
+        /*
+
+        This event is triggered when the user stopped sorting and the DOM position has changed.
+
+        e.detail.item contains the current dragged element.
+        e.detail.index contains the new index of the dragged element (considering only list items)
+        e.detail.oldindex contains the old index of the dragged element (considering only list items)
+        e.detail.elementIndex contains the new index of the dragged element (considering all items within sortable)
+        e.detail.oldElementIndex contains the old index of the dragged element (considering all items within sortable)
+        e.detail.startparent contains the element that the dragged item comes from
+        e.detail.endparent contains the element that the dragged item was added to (new parent)
+        e.detail.newEndList contains all elements in the list the dragged item was dragged to
+        e.detail.newStartList contains all elements in the list the dragged item was dragged from
+        e.detail.oldStartList contains all elements in the list the dragged item was dragged from BEFORE it was dragged from it
+        */
+        console.log(sortable('#form-questions','serialize'));
     });
 
     //Añadir una nueva pregunta al formulario
@@ -168,6 +201,31 @@ $(document).ready(function(){
         if(!$("#form-questions").has("li.question-item").length) {
             $('.empty').css('height','145px');
         }
+    });
+
+    /* ---------------------------------------------------
+                    DROPDOWN/MULTIPLE QUESTION
+    ----------------------------------------------------- */
+    $(document).on('click', '.add-option-button', function () {
+        var id = $('#question-options').find('li.option-item').length;
+        var count = id + 1;
+
+        var option = '<li class="option-item">' +
+            '   <input name="options['+ id +']" class="question-option" type="text" value="Opción '+ count +'">' +
+            '   <span class="glyphicon glyphicon-move move-option" aria-hidden="true"></span>\n' +
+            '   <span class="glyphicon glyphicon-remove delete-option" aria-hidden="true"></span>' +
+            '</li>';
+        $(option).insertBefore($('#add-option-item'));
+        sortable('#question-options',{
+            items: '.option-item',
+            handle: '.move-option',
+            forcePlaceholderSize: true
+        });
+
+    });
+
+    $(document).on('click', '.delete-option', function () {
+        $(this).closest('li').remove();
     });
 
 });

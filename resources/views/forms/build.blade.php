@@ -48,9 +48,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="row row-eq-height">
-            <div id="question-options" class="col-xs-3 sidebar">
+            <div id="question-types" class="col-xs-3 sidebar">
                 <ul class="list-group question-types">
-                    <li class="list-group-item question-type" data-id="0" data-type="ShortText" data-label="Respuesta corta" data-icon="text-width">
+                    <li class="list-group-item question-type" data-id="0" data-type="ShortText" data-label="Respuesta corta" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
                         Respuesta corta
                     </li>
@@ -66,43 +66,51 @@
                         <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                         Desplegable
                     </li>
-                    <li class="list-group-item question-type" data-id="4" data-type="Email" data-label="Email" data-icon="envelope" draggable="true">
-                        <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                        Email
-                    </li>
-                    <li class="list-group-item question-type" data-id="5" data-type="Date" data-label="Fecha" data-icon="calendar" draggable="true">
-                        <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        Fecha
-                    </li>
-                    <li class="list-group-item question-type" data-id="6" data-type="Legal" data-label="Legal" data-icon="text-width" draggable="true">
-                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                        Legal
-                    </li>
-                    <li class="list-group-item question-type" data-id="7" data-type="WebPage" data-label="Página web" data-icon="globe" draggable="true">
-                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                        Página web
-                    </li>
-                    <li class="list-group-item question-type" data-id="8" data-type="MultipleChoice" data-label="Elección múltiple" data-icon="check"  draggable="true">
+                    <li class="list-group-item question-type" data-id="4" data-type="MultipleChoice" data-label="Elección múltiple" data-icon="check"  draggable="true">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                         Elección múltiple
                     </li>
-                    <li class="list-group-item question-type" data-id="9" data-type="MultipleImages" data-label="Múltiples imágenes" data-icon="list-alt" draggable="true">
+                    <li class="list-group-item question-type" data-id="5" data-type="MultipleImages" data-label="Múltiples imágenes" data-icon="list-alt" draggable="true">
                         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                         Múltiples imágenes
                     </li>
-                    <li class="list-group-item question-type" data-id="10" data-type="YesNo" data-label="Si/No" data-icon="text-width" draggable="true">
+                    <li class="list-group-item question-type" data-id="6" data-type="MultipleChoiceGrid" data-label="Elección múltiple" data-icon="check"  draggable="true">
+                        <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+                        Cuadricula
+                    </li>
+                    <li class="list-group-item question-type" data-id="7" data-type="Email" data-label="Email" data-icon="envelope" draggable="true">
+                        <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        Email
+                    </li>
+                    <li class="list-group-item question-type" data-id="8" data-type="Legal" data-label="Legal" data-icon="text-width" draggable="true">
+                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                        Legal
+                    </li>
+                    <li class="list-group-item question-type" data-id="9" data-type="WebPage" data-label="Página web" data-icon="globe" draggable="true">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        Página web
+                    </li>
+                    <li class="list-group-item question-type" data-id="10" data-type="Date" data-label="Fecha" data-icon="calendar" draggable="true">
+                        <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        Fecha
+                    </li>
+                    <li class="list-group-item question-type" data-id="11" data-type="Hour" data-label="Fecha" data-icon="calendar" draggable="true">
+                        <span class="glyphicon glyphicon glyphicon-hour" aria-hidden="true"></span>
+                        Hora
+                    </li>
+                    <li class="list-group-item question-type" data-id="12" data-type="MultipleChoice" data-label="Si/No" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
                         Si/No
                     </li>
-                    <li class="list-group-item question-type" data-id="11" data-type="Rating" data-label="Puntuación" data-icon="star" draggable="true">
+                    <li class="list-group-item question-type" data-id="13" data-type="Rating" data-label="Puntuación" data-icon="star" draggable="true">
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         Puntación
                     </li>
-                    <li class="list-group-item question-type" data-id="12" data-type="Scale" data-label="Escala de opinión" data-icon="transfer" draggable="true">
+                    <li class="list-group-item question-type" data-id="14" data-type="Scale" data-label="Escala de opinión" data-icon="transfer" draggable="true">
                         <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
                         Escala de opinión
                     </li>
-                    <li class="list-group-item question-type" data-id="13" data-type="Number" data-label="Número" data-icon="text-width" draggable="true">
+                    <li class="list-group-item question-type" data-id="15" data-type="Number" data-label="Número" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
                         Número
                     </li>
@@ -117,9 +125,8 @@
                                <span class="question-label">{{ $question->text }}</span>
                             </div>
                             <div class="question-actions">
-                               <span class="move-up-question glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-                               <span class="move-down-question glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                               <span class="delete-question glyphicon glyphicon-trash" aria-hidden="true" ></span>
+                               <span class="move-question glyphicon glyphicon-move" aria-hidden="true"></span>
+                               <span class="delete-question glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </div>
                         </li>
                     @endforeach
@@ -158,5 +165,5 @@
 @section('script')
     <script>var form_id = "{{$form->id}}"</script>
     <script src="{{ asset('js/form.js') }}"></script>
-    <script src="{{ asset('components/bootstrap-toggle/js/bootstrap-toggle.js') }}"></script>
+    <script src="{{ asset('js/html.sortable.min.js') }}"></script>
 @endsection

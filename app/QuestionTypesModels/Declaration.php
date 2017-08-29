@@ -5,7 +5,7 @@ namespace App\QuestionTypesModels;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class ShortText extends Model
+class Declaration extends Model
 {
     /**
      * Get the question model.
@@ -24,8 +24,7 @@ class ShortText extends Model
      */
     public function silentSave(Request $request, $save = true)
     {
-        $this->max_num_characters = $request->input('max_num_characters');
-        $this->required = $request->input('required');
+        $this->button_text = $request->input('button_text');
 
         ($save) ? $this->save() : null;
     }

@@ -29,7 +29,6 @@ class QuestionController extends Controller
         $question = new Question();
         $question->text = $request->input('text');
         $question->description = $request->input('description');
-        $question->required = $request->input('required');
         $question->icon = $request->input('icon');
         $question->form_id = $request->input('form_id');
         $question->last_update_user_id = Auth::id();
@@ -66,5 +65,62 @@ class QuestionController extends Controller
     {
         $question = Question::findOrFail($id);
         $question->delete();
+    }
+
+    /**
+     * Display the view of the specified question type.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getModalType(Request $request, $id)
+    {
+        $view = 'Ha ocurrido un error';
+
+        switch ($id) {
+            case 0:
+                $view = 'forms.modals.shortText';
+                break;
+            case 1:
+                $view = 'forms.modals.longText';
+                break;
+            case 2:
+                $view = 'forms.modals.declaration';
+                break;
+            case 3:
+                $view = 'forms.modals.dropdown';
+                break;
+            case 4:
+                $view = 'forms.modals.email';
+                break;
+            case 5:
+                $view = 'forms.modals.date';
+                break;
+            case 6:
+                $view = 'forms.modals.legal';
+                break;
+            case 7:
+                $view = 'forms.modals.web';
+                break;
+            case 8:
+                $view = 'forms.modals.multipleChoice';
+                break;
+            case 9:
+                $view = 'forms.modals.pictureChoice';
+                break;
+            case 10:
+                $view = 'forms.modals.yesNo';
+                break;
+            case 11:
+                $view = 'forms.modals.rating';
+                break;
+            case 12:
+                $view = 'forms.modals.scale';
+                break;
+            case 13:
+                $view = 'forms.modals.number';
+                break;
+        }
+        return view($view);
     }
 }

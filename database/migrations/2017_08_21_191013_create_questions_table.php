@@ -19,7 +19,6 @@ class CreateQuestionsTable extends Migration
 
             $table->text('text');
             $table->text('description')->nullable();
-            $table->boolean('required');
             $table->text('icon');
 
 
@@ -28,6 +27,7 @@ class CreateQuestionsTable extends Migration
 
             $table->integer('typable_id');
             $table->string('typable_type');
+            $table->integer('position');
         });
 
         Schema::table('questions', function(Blueprint $table) {

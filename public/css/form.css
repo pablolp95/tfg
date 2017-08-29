@@ -52,7 +52,7 @@
 /* ---------------------------------------------------
                    QUESTIONS SIDEBAR STYLE
 ----------------------------------------------------- */
-#question-options {
+#question-types {
     padding-top: 20px;
     padding-right: 0;
     position: absolute;
@@ -232,3 +232,60 @@
     padding: 10px;
 }
 
+/* ---------------------------------------------------
+               QUESTION OPTIONS STYLE
+----------------------------------------------------- */
+.option-item, #add-option-item {
+    position: relative;
+}
+
+#add-option-item .add-option-button {
+    padding: 5px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    color: white;
+    font-size: 1.2em;
+    background-color: limegreen;
+    cursor:pointer;
+    display: block;
+}
+
+.option-item {
+    position: relative;
+    background: #8CCEFF;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+.option-item .question-option {
+    background: #8CCEFF;
+    border: none;
+    width: 60%;
+}
+
+.option-item .move-option {
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    padding: 5px;
+    color: #0006;
+    border-radius: 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.option-item .delete-option {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 5px;
+    color: #0006;
+    border-radius: 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+}

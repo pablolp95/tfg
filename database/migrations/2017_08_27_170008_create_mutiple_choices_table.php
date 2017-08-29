@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLongTextsTable extends Migration
+class CreateMutipleChoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateLongTextsTable extends Migration
      */
     public function up()
     {
-        Schema::create('long_texts', function (Blueprint $table) {
+        Schema::create('mutiple_choices', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->text('max_num_characters')->nullable();
             $table->boolean('required');
+            $table->boolean('multiple');
+            $table->boolean('random');
+            $table->boolean('vertical');
+            $table->boolean('other');
+
         });
     }
 
@@ -29,6 +33,6 @@ class CreateLongTextsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('long_texts');
+        Schema::dropIfExists('mutiple_choices');
     }
 }
