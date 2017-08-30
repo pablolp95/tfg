@@ -9,21 +9,8 @@
             <input type="hidden" name="type" value="Declaration">
             <input id="form_id" type="hidden" name="form_id" value="">
             <input id="icon" type="hidden" name="icon" value="">
-
-            <div class="question-field">
-                {!! Form::label("text", "Texto") !!}
-                {!! Form::textarea("text", null, ["id" => "text", "class" => "form-control","rows" => "4"]) !!}
-            </div>
-
-            <div class="question-field">
-                {!! Form::label("description", "Descripción") !!}
-                {!! Form::textarea("description", null, ["id" => "description", "class" => "form-control","rows" => "4"]) !!}
-            </div>
-
-            <div class="question-field">
-                {!! Form::label("button_text", "Texto del botón") !!}
-                {!! Form::text("button_text", null, ["id" => "button_text"]) !!}
-            </div>
+            <input id="question-position" type="hidden" name="position" value="">
+            @include('forms.modals.declaration._model')
             {!! Form::close() !!}
         </div>
         <div class="modal-footer">

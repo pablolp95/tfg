@@ -25,17 +25,20 @@ Route::resource('workspaces', 'WorkspaceController', ['only' => [
     'store', 'show', 'update', 'destroy'
 ]]);
 
-Route::post('forms', ['as' => 'forms.store', 'uses' => 'FormController@store']);
-Route::delete('forms/{id}', ['as' => 'forms.destroy', 'uses' => 'FormController@destroy']);
 Route::get('forms/{id}/build', ['as' => 'forms.show', 'uses' => 'FormController@show']);
 Route::get('forms/{id}/design', ['as' => 'forms.design', 'uses' => 'FormController@getDesign']);
 Route::get('forms/{id}/share', ['as' => 'forms.share', 'uses' => 'FormController@getShare']);
 Route::get('forms/{id}/analyze', ['as' => 'forms.analyze', 'uses' => 'FormController@getAnalyze']);
+Route::post('forms', ['as' => 'forms.store', 'uses' => 'FormController@store']);
 Route::put('forms/{id}', ['as' => 'forms.update', 'uses' => 'FormController@update']);
 Route::put('forms/{id}/design', ['as' => 'forms.design.update', 'uses' => 'FormController@putDesign']);
+Route::delete('forms/{id}', ['as' => 'forms.destroy', 'uses' => 'FormController@destroy']);
 
-Route::get('questions/type/{id}', ['as' => 'forms.type', 'uses' => 'QuestionController@getModalType']);
+Route::get('questions/create/{type}', ['as' => 'questions.create', 'uses' => 'QuestionController@create']);
+Route::get('questions/{id}/edit', ['as' => 'questions.edit', 'uses' => 'QuestionController@edit']);
 Route::post('questions', ['as' => 'questions.store', 'uses' => 'QuestionController@store']);
+Route::put('questions/{id}', ['as' => 'questions.update', 'uses' => 'QuestionController@update']);
+Route::put('questions/update/order', ['as' => 'questions.update.order', 'uses' => 'QuestionController@updateQuestionOrder']);
 Route::delete('questions/{id}', ['as' => 'questions.destroy', 'uses' => 'QuestionController@destroy']);
 
 

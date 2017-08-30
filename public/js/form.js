@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 
     /* ---------------------------------------------------
-                    SUBNAV
+                        1.SUBNAV
     ----------------------------------------------------- */
     //Muestra el input para cambiar el nombre del workspace actual
     $(document).on('click', '#resource-name', function () {
@@ -63,15 +63,18 @@ $(document).ready(function(){
     });
 
     /* ---------------------------------------------------
-                    BUILD CONTENT
+                    2.MANAGE QUESTIONS
     ----------------------------------------------------- */
+    /*-------------------------
+        2.1.ADD QUESTIONS
+     -------------------------*/
     //Envia una petición de creación del tipo de pregunta seleccionada
     $(document).on('click', '.question-type', function () {
         var question_html;
         if(!$("#form-questions").has("li.question-item").length) {
             $('.empty').css('height','45px');
         }
-        question_html = '<li id="null" class="question-item" data-icon="' + $(this).data('icon') + '">' +
+        question_html = '<li id="null" class="question-item" data-id="" data-icon="' + $(this).data('icon') + '" data-type="' + $(this).data('type') + '">' +
             '<div class="question-label-wrapper">' +
             '   <span class="glyphicon glyphicon-'+ $(this).data('icon') +'" aria-hidden="true"></span>' +
             '   <span class="question-label">' + $(this).data('label') + '</span>' +
@@ -89,9 +92,9 @@ $(document).ready(function(){
         //Petición del contenido del modal según el tipo de pregunta y quitamos el icono de carga
         $.ajax({
             type: 'get',
-            url: '/questions/type/' + $(this).data('id'),
+            url: '/questions/create/' + $(this).data('type'),
             data: {
-                _token: $('[name="csrf-token"]').attr('content'),
+                _token: $('[name="csrf-token"]').attr('content')
             },
             success: function(html) {
                 $('#add-question-modal').append(html);
@@ -100,6 +103,7 @@ $(document).ready(function(){
             },
             error: function(m) {
                 console.log(m);
+                $('html').html(m.responseText);
             }
         });
 
@@ -109,6 +113,50 @@ $(document).ready(function(){
 
     });
 
+    //Añadir una nueva pregunta al formulario
+    $(document).on('click', '#add-question', function () {
+        //Añado el id del formulario de la pregunta a almacenar
+        $('#form_id').val(form_id);
+        $('#icon').val($('#null').data('icon'));
+        var position = $('#form-questions').find('li.question-item').length - 1;
+        $('#question-position').val(position);
+        var question_id = '';
+
+        //Petición de creación de la pregunta
+        $.ajax({
+            type: 'post',
+            url: '/questions',
+            data: $('#question-form').serialize(),
+            success: function(model_json) {
+                $model = JSON.parse(model_json);
+                question_id = "question-"+$model.id;
+
+                $('#null').attr('id',question_id);
+                $('#' + question_id + ' .question-label').html($model.text);
+                $('#' + question_id).attr('data-id', $model.id);
+                $('#add-question-modal').modal('hide');
+            },
+            error: function(m) {
+                console.log(m);
+            }
+        });
+    });
+
+    //Quita de la lista la pregunta si se cancela la operación de añadir una nueva
+    $('#add-question-modal').on('hidden.bs.modal', function () {
+        if($('#null').length != 0) {
+            $('#null').remove();
+        }
+        $('#add-question-modal').empty();
+        if(!$("#form-questions").has("li.question-item").length) {
+            $('.empty').css('height','145px');
+        }
+    });
+
+    /*-------------------------
+        2.2.EDIT QUESTIONS
+     -------------------------*/
+    //Actualización de las posiciones de las preguntas
     sortable('#form-questions')[0].addEventListener('sortupdate', function(e) {
         /*
 
@@ -125,51 +173,99 @@ $(document).ready(function(){
         e.detail.newStartList contains all elements in the list the dragged item was dragged from
         e.detail.oldStartList contains all elements in the list the dragged item was dragged from BEFORE it was dragged from it
         */
-        console.log(sortable('#form-questions','serialize'));
-    });
 
-    //Añadir una nueva pregunta al formulario
-    $(document).on('click', '#add-question', function () {
-        //Añado el id del formulario a la pregunta a almacenar
-        $('#form_id').val(form_id);
-        $('#icon').val($('#null').data('icon'));
+        var token = $('[name="csrf-token"]').attr('content');
+        var data = sortable('#form-questions','serialize')[0].children;
+        var questions_data = {
+            questions: []
+        };
 
-        //Petición de creación de la pregunta
+        $.each(data, function (index, value) {
+            questions_data.questions.push({
+                "id": value.attributes[2].value,
+                "position": index
+            });
+        });
+
         $.ajax({
             type: 'post',
-            url: '/questions',
-            data: $('#question-form').serialize(),
-            success: function(question_id) {
-                $('#null').attr('id',question_id);
-                $('#' + question_id + ' .question-label').html($('#question-form').find('[name="text"]').val());
-                $('#add-question-modal').modal('hide');
+            url: '/questions/update/order',
+            data: {
+                _method: 'put',
+                _token: token,
+                order: questions_data
+            },
+            success: function() {
+
+            },
+            error: function(ms) {
+                console.log(ms);
+            }
+        });
+
+
+    });
+
+    //Mostrar modal para editar pregunta
+    $(document).on('click', '.question-item', function () {
+        //Petición del contenido del modal según el tipo de pregunta y quitamos el icono de carga
+        $.ajax({
+            type: 'get',
+            url: '/questions/' + $(this).data('id') + '/edit',
+            data: {
+                _token: $('[name="csrf-token"]').attr('content')
+            },
+            success: function(html) {
+                $('#edit-question-modal').append(html);
+                $('.loading-question').remove();
+                $('#edit-question-modal').modal('toggle');
             },
             error: function(m) {
                 console.log(m);
+                $('html').html(m.responseText);
             }
         });
     });
 
-    //Quita el id del formulario a eliminar si se cancela la acción
-    $('#add-question-modal').on('hidden.bs.modal', function () {
-        if($('#null').length != 0) {
-            $('#null').remove();
-        }
-        $('#add-question-modal').empty();
-        if(!$("#form-questions").has("li.question-item").length) {
-            $('.empty').css('height','145px');
-        }
+    //Actualizar una pregunta
+    $(document).on('click', '#edit-question', function () {
+        var form = $('#question-form');
+        var question_id = '#question-'+$('#edit-question').val();
+
+        //Petición de actualización de la pregunta
+        $.ajax({
+            type: 'post',
+            url: form.prop('action'),
+            data: form.serialize(),
+            success: function(model_json) {
+                $model = JSON.parse(model_json);
+                $(question_id+' .question-label').html($model.text);
+                $('#edit-question-modal').modal('hide');
+            },
+            error: function(message) {
+                console.log(message);
+            }
+        });
     });
 
+    //Quita el contenido del modal si se cancela la edición de la pregunta
+    $('#edit-question-modal').on('hidden.bs.modal', function () {
+        $('#edit-question-modal').empty();
+    });
+
+    /*-------------------------
+        2.3.DELETE QUESTIONS
+     -------------------------*/
     //Establece el id de la pregunta a eliminar y muestra el modal de eliminación
     $(document).on('click', '.delete-question', function (event) {
-        $('#delete-question-button').attr("value", $(this).closest('li').attr('id'));
+        var id = $(this).closest('li').attr('id').replace('question-','');
+        $('#delete-question-button').attr("value", id);
         $('#delete-question-modal').modal('toggle');
         event.stopPropagation();
     });
 
     //Quita el id de la pregunta a eliminar si se cancela la acción
-    $('#delete-question-modal').on('hidden.bs.modal', function (e) {
+    $('#delete-question-modal').on('hidden.bs.modal', function () {
         $('#delete-question-button').attr("value", "");
     });
 
@@ -186,7 +282,7 @@ $(document).ready(function(){
                 _token: token
             },
             success: function(ms) {
-                $('.question-item[id='+ id +']').fadeOut(500, function(){
+                $('.question-item[id=question-'+ id +']').fadeOut(500, function(){
                     $(this).remove()
                 });
             },
@@ -204,7 +300,7 @@ $(document).ready(function(){
     });
 
     /* ---------------------------------------------------
-                    DROPDOWN/MULTIPLE QUESTION
+                3.DROPDOWN/MULTIPLE QUESTION TYPE
     ----------------------------------------------------- */
     $(document).on('click', '.add-option-button', function () {
         var id = $('#question-options').find('li.option-item').length;

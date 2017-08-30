@@ -50,67 +50,67 @@
         <div class="row row-eq-height">
             <div id="question-types" class="col-xs-3 sidebar">
                 <ul class="list-group question-types">
-                    <li class="list-group-item question-type" data-id="0" data-type="ShortText" data-label="Respuesta corta" data-icon="text-width" draggable="true">
+                    <li class="list-group-item question-type" data-type="shortText" data-label="Respuesta corta" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
                         Respuesta corta
                     </li>
-                    <li class="list-group-item question-type" data-id="1" data-type="LongText" data-label="Respuesta larga" data-icon="text-height" draggable="true">
+                    <li class="list-group-item question-type" data-type="longText" data-label="Respuesta larga" data-icon="text-height" draggable="true">
                         <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
                         Respuesta larga
                     </li>
-                    <li class="list-group-item question-type" data-id="2" data-type="Declaration" data-label="Texto" data-icon="pencil" draggable="true">
+                    <li class="list-group-item question-type" data-type="declaration" data-label="Texto" data-icon="pencil" draggable="true">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         Texto
                     </li>
-                    <li class="list-group-item question-type" data-id="3" data-type="Dropdown" data-label="Desplegable" data-icon="triangle-bottom" draggable="true">
+                    <li class="list-group-item question-type" data-type="dropdown" data-label="Desplegable" data-icon="triangle-bottom" draggable="true">
                         <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                         Desplegable
                     </li>
-                    <li class="list-group-item question-type" data-id="4" data-type="MultipleChoice" data-label="Elección múltiple" data-icon="check"  draggable="true">
+                    <li class="list-group-item question-type" data-type="multipleChoice" data-label="Elección múltiple" data-icon="check"  draggable="true">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                         Elección múltiple
                     </li>
-                    <li class="list-group-item question-type" data-id="5" data-type="MultipleImages" data-label="Múltiples imágenes" data-icon="list-alt" draggable="true">
+                    <li class="list-group-item question-type" data-type="multipleImages" data-label="Múltiples imágenes" data-icon="list-alt" draggable="true">
                         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                         Múltiples imágenes
                     </li>
-                    <li class="list-group-item question-type" data-id="6" data-type="MultipleChoiceGrid" data-label="Elección múltiple" data-icon="check"  draggable="true">
+                    <li class="list-group-item question-type" data-type="multipleChoiceGrid" data-label="Elección múltiple" data-icon="check"  draggable="true">
                         <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
                         Cuadricula
                     </li>
-                    <li class="list-group-item question-type" data-id="7" data-type="Email" data-label="Email" data-icon="envelope" draggable="true">
+                    <li class="list-group-item question-type" data-type="email" data-label="Email" data-icon="envelope" draggable="true">
                         <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
                         Email
                     </li>
-                    <li class="list-group-item question-type" data-id="8" data-type="Legal" data-label="Legal" data-icon="text-width" draggable="true">
+                    <li class="list-group-item question-type" data-type="legal" data-label="Legal" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
                         Legal
                     </li>
-                    <li class="list-group-item question-type" data-id="9" data-type="WebPage" data-label="Página web" data-icon="globe" draggable="true">
+                    <li class="list-group-item question-type" data-type="web" data-label="Página web" data-icon="globe" draggable="true">
                         <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
                         Página web
                     </li>
-                    <li class="list-group-item question-type" data-id="10" data-type="Date" data-label="Fecha" data-icon="calendar" draggable="true">
+                    <li class="list-group-item question-type" data-type="date" data-label="Fecha" data-icon="calendar" draggable="true">
                         <span class="glyphicon glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         Fecha
                     </li>
-                    <li class="list-group-item question-type" data-id="11" data-type="Hour" data-label="Fecha" data-icon="calendar" draggable="true">
+                    <li class="list-group-item question-type" data-type="hour" data-label="Fecha" data-icon="calendar" draggable="true">
                         <span class="glyphicon glyphicon glyphicon-hour" aria-hidden="true"></span>
                         Hora
                     </li>
-                    <li class="list-group-item question-type" data-id="12" data-type="MultipleChoice" data-label="Si/No" data-icon="text-width" draggable="true">
+                    <li class="list-group-item question-type" data-type="multipleChoice" data-label="Si/No" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
                         Si/No
                     </li>
-                    <li class="list-group-item question-type" data-id="13" data-type="Rating" data-label="Puntuación" data-icon="star" draggable="true">
+                    <li class="list-group-item question-type" data-type="rating" data-label="Puntuación" data-icon="star" draggable="true">
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         Puntación
                     </li>
-                    <li class="list-group-item question-type" data-id="14" data-type="Scale" data-label="Escala de opinión" data-icon="transfer" draggable="true">
+                    <li class="list-group-item question-type" data-type="scale" data-label="Escala de opinión" data-icon="transfer" draggable="true">
                         <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
                         Escala de opinión
                     </li>
-                    <li class="list-group-item question-type" data-id="15" data-type="Number" data-label="Número" data-icon="text-width" draggable="true">
+                    <li class="list-group-item question-type" data-type="number" data-label="Número" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
                         Número
                     </li>
@@ -118,8 +118,8 @@
             </div>
             <div class="col-xs-9 form-structure">
                 <ul id="form-questions">
-                    @foreach($form->questions as $question)
-                        <li id="{{ $question->id }}" class="question-item" data-icon="{{ $question->icon }}">
+                    @foreach($form->questions->sortBy('position') as $question)
+                        <li id="question-{{ $question->id }}" class="question-item" data-id="{{ $question->id }}" data-icon="{{ $question->icon }}" data-type="{{ $question->typable_type }}">
                             <div class="question-label-wrapper">
                                <span class="glyphicon glyphicon-{{ $question->icon }}" aria-hidden="true"></span>
                                <span class="question-label">{{ $question->text }}</span>
@@ -140,6 +140,10 @@
 
     <!-- Add Question Modal -->
     <div class="modal fade" id="add-question-modal" tabindex="-1" role="dialog" aria-labelledby="addQuestion">
+    </div>
+
+    <!-- Edit Question Modal -->
+    <div class="modal fade" id="edit-question-modal" tabindex="-1" role="dialog" aria-labelledby="addQuestion">
     </div>
 
     <!-- Delete Question modal -->

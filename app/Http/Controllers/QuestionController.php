@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Psy\Util\Json;
 
 class QuestionController extends Controller
 {
     /**
      * Create a new controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -19,27 +20,67 @@ class QuestionController extends Controller
     }
 
     /**
+     * Display the view of the specified question type.
+     *
+     * @param  int  $type
+     * @return \Illuminate\Http\Response
+     */
+    public function create($type)
+    {
+        $view = 'forms.modals.'.$type.'.create';
+        return view($view);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return String
      */
     public function store(Request $request)
     {
         $question = new Question();
-        $question->text = $request->input('text');
-        $question->description = $request->input('description');
         $question->icon = $request->input('icon');
         $question->form_id = $request->input('form_id');
-        $question->last_update_user_id = Auth::id();
+        $question->position = $request->input('position');
 
         $className = 'App\\QuestionTypesModels\\' . $request->input('type');
         $type = new $className;
 
+        $this->silentSave($question, $type, $request);
+
+        return $question->toJson();
+    }
+
+    /**
+     * Basic save operation used for update & store.
+     *
+     * @param Request $request
+     * @param bool $save
+     * @return mixed
+     */
+    public function silentSave(&$question, &$type ,Request $request, $save = true)
+    {
+        $question->text = $request->input('text');
+        $question->description = $request->input('description');
+        $question->last_update_user_id = Auth::id();
+
         $type->silentSave($request);
         $type->question()->save($question);
+    }
 
-        return $question->id;
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $question = Question::findOrFail($id);
+        $type = $question->typable_type;
+        $view = 'forms.modals.'.$type.'.edit';
+        return view($view, compact('question'));
     }
 
     /**
@@ -47,12 +88,15 @@ class QuestionController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return String
      */
     public function update(Request $request, $id)
     {
-        //$form = Form::findOrFail($id);
-        //$this->silentSave($form, $request);
+        $question = Question::findOrFail($id);
+        $type = $question->typable;
+
+        $this->silentSave($question, $type, $request);
+        return $question->toJson();
     }
 
     /**
@@ -64,63 +108,24 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         $question = Question::findOrFail($id);
+        $question->typable->delete();
         $question->delete();
     }
 
     /**
-     * Display the view of the specified question type.
+     * Update the order of the questions associated
      *
-     * @param  int  $id
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getModalType(Request $request, $id)
+    public function updateQuestionOrder(Request $request)
     {
-        $view = 'Ha ocurrido un error';
-
-        switch ($id) {
-            case 0:
-                $view = 'forms.modals.shortText';
-                break;
-            case 1:
-                $view = 'forms.modals.longText';
-                break;
-            case 2:
-                $view = 'forms.modals.declaration';
-                break;
-            case 3:
-                $view = 'forms.modals.dropdown';
-                break;
-            case 4:
-                $view = 'forms.modals.email';
-                break;
-            case 5:
-                $view = 'forms.modals.date';
-                break;
-            case 6:
-                $view = 'forms.modals.legal';
-                break;
-            case 7:
-                $view = 'forms.modals.web';
-                break;
-            case 8:
-                $view = 'forms.modals.multipleChoice';
-                break;
-            case 9:
-                $view = 'forms.modals.pictureChoice';
-                break;
-            case 10:
-                $view = 'forms.modals.yesNo';
-                break;
-            case 11:
-                $view = 'forms.modals.rating';
-                break;
-            case 12:
-                $view = 'forms.modals.scale';
-                break;
-            case 13:
-                $view = 'forms.modals.number';
-                break;
+        $questions_order = $request->input('order');
+        foreach ($questions_order['questions'] as $index => $value){
+            $question = Question::find($value['id']);
+            $question->position = $value['position'];
+            $question->save();
         }
-        return view($view);
+
     }
 }
