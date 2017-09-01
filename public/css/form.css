@@ -255,7 +255,7 @@
     width: 100%;
     color: white;
     font-size: 1.2em;
-    background-color: limegreen;
+    background-color: #2ccb2ccc;
     cursor:pointer;
     display: block;
 }
@@ -296,4 +296,8 @@
     border-radius: 20px;
     font-size: 1.2em;
     cursor: pointer;
+}
+
+select#shape {
+    font-family: FontAwesome, sans-serif;
 }

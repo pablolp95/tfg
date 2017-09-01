@@ -5,16 +5,8 @@ namespace App\QuestionTypesModels;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class MutipleChoice extends Model
+class Legal extends Model
 {
-    /**
-     * Get the options.
-     */
-    public function options()
-    {
-        return $this->morphMany('App\QuestionOption', 'typable');
-    }
-
     /**
      * Get the question model.
      */
@@ -36,5 +28,4 @@ class MutipleChoice extends Model
 
         ($save) ? $this->save() : null;
     }
-
 }

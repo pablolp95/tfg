@@ -17,8 +17,9 @@ class CreateNumbersTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->text('range_min');
-            $table->text('range_max');
+            $table->string('range_min')->nullable();
+            $table->string('range_max')->nullable();
+            $table->boolean('required');
         });
     }
 

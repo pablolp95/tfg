@@ -17,10 +17,11 @@ class CreateScalesTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
+            $table->string('range_min');
+            $table->string('range_max');
+            $table->string('left_tag');
+            $table->string('right_tag');
             $table->boolean('required');
-            $table->text('range_min');
-            $table->text('range_max');
-            $table->boolean('start_one');
         });
     }
 

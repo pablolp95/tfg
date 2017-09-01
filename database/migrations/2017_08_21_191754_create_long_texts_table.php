@@ -17,7 +17,7 @@ class CreateLongTextsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->text('max_num_characters')->nullable();
+            $table->string('max_num_characters')->nullable();
             $table->boolean('required');
         });
     }

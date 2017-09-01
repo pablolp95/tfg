@@ -24,6 +24,8 @@ class Rating extends Model
      */
     public function silentSave(Request $request, $save = true)
     {
+        $this->range = $request->input('range');
+        $this->shape = $request->input('shape');
         $this->required = $request->input('required');
 
         ($save) ? $this->save() : null;

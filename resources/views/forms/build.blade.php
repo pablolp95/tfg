@@ -7,6 +7,7 @@
 @section('css')
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
     <link href="{{ asset('components/bootstrap-toggle/css/bootstrap-toggle.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/components-font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 @endsection
 
 @section('subnav')
@@ -58,14 +59,6 @@
                         <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
                         Respuesta larga
                     </li>
-                    <li class="list-group-item question-type" data-type="declaration" data-label="Texto" data-icon="pencil" draggable="true">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                        Texto
-                    </li>
-                    <li class="list-group-item question-type" data-type="dropdown" data-label="Desplegable" data-icon="triangle-bottom" draggable="true">
-                        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                        Desplegable
-                    </li>
                     <li class="list-group-item question-type" data-type="multipleChoice" data-label="Elección múltiple" data-icon="check"  draggable="true">
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                         Elección múltiple
@@ -74,17 +67,33 @@
                         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                         Múltiples imágenes
                     </li>
+                    <li class="list-group-item question-type" data-type="dropdown" data-label="Desplegable" data-icon="triangle-bottom" draggable="true">
+                        <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                        Desplegable
+                    </li>
                     <li class="list-group-item question-type" data-type="multipleChoiceGrid" data-label="Elección múltiple" data-icon="check"  draggable="true">
                         <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
                         Cuadricula
                     </li>
+                    <li class="list-group-item question-type" data-type="rating" data-label="Puntuación" data-icon="star" draggable="true">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        Puntación
+                    </li>
+                    <li class="list-group-item question-type" data-type="scale" data-label="Escala de opinión" data-icon="transfer" draggable="true">
+                        <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+                        Escala de opinión
+                    </li>
+                    <li class="list-group-item question-type" data-type="declaration" data-label="Texto" data-icon="pencil" draggable="true">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        Texto
+                    </li>
+                    <li class="list-group-item question-type" data-type="number" data-label="Número" data-icon="text-width" draggable="true">
+                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                        Número
+                    </li>
                     <li class="list-group-item question-type" data-type="email" data-label="Email" data-icon="envelope" draggable="true">
                         <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
                         Email
-                    </li>
-                    <li class="list-group-item question-type" data-type="legal" data-label="Legal" data-icon="text-width" draggable="true">
-                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                        Legal
                     </li>
                     <li class="list-group-item question-type" data-type="web" data-label="Página web" data-icon="globe" draggable="true">
                         <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
@@ -95,24 +104,16 @@
                         Fecha
                     </li>
                     <li class="list-group-item question-type" data-type="hour" data-label="Fecha" data-icon="calendar" draggable="true">
-                        <span class="glyphicon glyphicon glyphicon-hour" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon glyphicon-hourglass" aria-hidden="true"></span>
                         Hora
                     </li>
-                    <li class="list-group-item question-type" data-type="multipleChoice" data-label="Si/No" data-icon="text-width" draggable="true">
+                    <li class="list-group-item question-type" data-type="yesNo" data-label="Si/No" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
                         Si/No
                     </li>
-                    <li class="list-group-item question-type" data-type="rating" data-label="Puntuación" data-icon="star" draggable="true">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                        Puntación
-                    </li>
-                    <li class="list-group-item question-type" data-type="scale" data-label="Escala de opinión" data-icon="transfer" draggable="true">
-                        <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
-                        Escala de opinión
-                    </li>
-                    <li class="list-group-item question-type" data-type="number" data-label="Número" data-icon="text-width" draggable="true">
+                    <li class="list-group-item question-type" data-type="legal" data-label="Legal" data-icon="text-width" draggable="true">
                         <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
-                        Número
+                        Legal
                     </li>
                 </ul>
             </div>

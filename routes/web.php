@@ -41,7 +41,6 @@ Route::put('questions/{id}', ['as' => 'questions.update', 'uses' => 'QuestionCon
 Route::put('questions/update/order', ['as' => 'questions.update.order', 'uses' => 'QuestionController@updateQuestionOrder']);
 Route::delete('questions/{id}', ['as' => 'questions.destroy', 'uses' => 'QuestionController@destroy']);
 
-
 /*Route::resource('forms', 'FormController', ['only' => [
     'store', 'show', 'update', 'destroy'
 ]]);*/

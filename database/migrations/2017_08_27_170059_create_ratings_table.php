@@ -17,9 +17,9 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->boolean('required');
             $table->boolean('range');
-            $table->boolean('style');
+            $table->string('shape');
+            $table->boolean('required');
         });
     }
 

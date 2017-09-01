@@ -17,7 +17,7 @@ class CreateDeclarationsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->text('button_text')->nullable();
+            $table->string('button_text')->nullable();
 
         });
     }

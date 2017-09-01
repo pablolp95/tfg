@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
             'declaration' => 'App\QuestionTypesModels\Declaration',
             'dropdown' => 'App\QuestionTypesModels\Dropdown',
             'email' => 'App\QuestionTypesModels\Email',
+            'hour' => 'App\QuestionTypesModels\Hour',
+            'legal' => 'App\QuestionTypesModels\Legal',
             'longText' => 'App\QuestionTypesModels\LongText',
             'multipleChoice' => 'App\QuestionTypesModels\MultipleChoice',
             'number' => 'App\QuestionTypesModels\Number',
@@ -27,7 +29,8 @@ class AppServiceProvider extends ServiceProvider
             'rating' => 'App\QuestionTypesModels\Rating',
             'scale' => 'App\QuestionTypesModels\Scale',
             'shortText' => 'App\QuestionTypesModels\ShortText',
-            'web' => 'App\QuestionTypesModels\Web'
+            'web' => 'App\QuestionTypesModels\Web',
+            'yesNo' => 'App\QuestionTypesModels\YesNo'
         ]);
     }
 

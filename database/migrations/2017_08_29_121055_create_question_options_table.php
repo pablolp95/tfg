@@ -17,6 +17,8 @@ class CreateQuestionOptionsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
+            $table->string('option_value');
+            $table->integer('position');
             $table->integer('typable_id');
             $table->string('typable_type');
         });

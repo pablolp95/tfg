@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMutipleChoicesTable extends Migration
+class CreateLegalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateMutipleChoicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('mutiple_choices', function (Blueprint $table) {
+        Schema::create('legals', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
             $table->boolean('required');
-            $table->boolean('multiple');
-            $table->boolean('random');
-            $table->boolean('vertical');
-            $table->boolean('other');
-
         });
     }
 
@@ -33,6 +28,6 @@ class CreateMutipleChoicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mutiple_choices');
+        Schema::dropIfExists('legals');
     }
 }

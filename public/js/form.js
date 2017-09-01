@@ -5,13 +5,6 @@ $(document).ready(function(){
         forcePlaceholderSize: true
     });
 
-    sortable('#question-options',{
-        items: '.option-item',
-        handle: '.move-option',
-        forcePlaceholderSize: true
-    });
-
-
     /* ---------------------------------------------------
                         1.SUBNAV
     ----------------------------------------------------- */
@@ -71,16 +64,19 @@ $(document).ready(function(){
     //Envia una petición de creación del tipo de pregunta seleccionada
     $(document).on('click', '.question-type', function () {
         var question_html;
+        var type = $(this).data('type');
+
         if(!$("#form-questions").has("li.question-item").length) {
             $('.empty').css('height','45px');
         }
-        question_html = '<li id="null" class="question-item" data-id="" data-icon="' + $(this).data('icon') + '" data-type="' + $(this).data('type') + '">' +
+
+        question_html = '<li id="null" class="question-item" data-id="" data-icon="' + $(this).data('icon') + '" data-type="' + type + '">' +
             '<div class="question-label-wrapper">' +
             '   <span class="glyphicon glyphicon-'+ $(this).data('icon') +'" aria-hidden="true"></span>' +
             '   <span class="question-label">' + $(this).data('label') + '</span>' +
             '</div>' +
             '<div class="question-actions">' +
-            '   <span class="move-up-question glyphicon glyphicon-move" aria-hidden="true"></span>' +
+            '   <span class="move-question glyphicon glyphicon-move" aria-hidden="true"></span>' +
             '   <span class="delete-question glyphicon glyphicon-trash" aria-hidden="true" ></span>' +
             '</div>' +
             '<div class="loading-question">' +
@@ -92,7 +88,7 @@ $(document).ready(function(){
         //Petición del contenido del modal según el tipo de pregunta y quitamos el icono de carga
         $.ajax({
             type: 'get',
-            url: '/questions/create/' + $(this).data('type'),
+            url: '/questions/create/' + type,
             data: {
                 _token: $('[name="csrf-token"]').attr('content')
             },
@@ -104,6 +100,15 @@ $(document).ready(function(){
             error: function(m) {
                 console.log(m);
                 $('html').html(m.responseText);
+            },
+            complete: function () {
+                if(type === 'dropdown' || type === 'multipleChoice' || type === 'pictureChoice'){
+                    sortable('#question-options',{
+                        items: '.option-item',
+                        handle: '.move-option',
+                        forcePlaceholderSize: true
+                    });
+                }
             }
         });
 
@@ -138,6 +143,7 @@ $(document).ready(function(){
             },
             error: function(m) {
                 console.log(m);
+                $('html').html(m.responseText);
             }
         });
     });
@@ -302,12 +308,14 @@ $(document).ready(function(){
     /* ---------------------------------------------------
                 3.DROPDOWN/MULTIPLE QUESTION TYPE
     ----------------------------------------------------- */
+    //Se añade a la lista una nueva opción
     $(document).on('click', '.add-option-button', function () {
         var id = $('#question-options').find('li.option-item').length;
         var count = id + 1;
 
         var option = '<li class="option-item">' +
-            '   <input name="options['+ id +']" class="question-option" type="text" value="Opción '+ count +'">' +
+            '   <input name="options_id[]" value="" type="hidden">' +
+            '   <input name="options_value[]" class="question-option" type="text" value="Opción '+ count +'">' +
             '   <span class="glyphicon glyphicon-move move-option" aria-hidden="true"></span>\n' +
             '   <span class="glyphicon glyphicon-remove delete-option" aria-hidden="true"></span>' +
             '</li>';
@@ -320,6 +328,7 @@ $(document).ready(function(){
 
     });
 
+    //Se borra de la lista la opción seleccionada
     $(document).on('click', '.delete-option', function () {
         $(this).closest('li').remove();
     });
