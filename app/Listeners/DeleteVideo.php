@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\MultipleChoiceDeleted;
+use App\Events\QuestionWithVideo;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class DeleteMultipleChoiceOptions
+class DeleteVideo
 {
     /**
      * Create the event listener.
@@ -21,13 +21,13 @@ class DeleteMultipleChoiceOptions
     /**
      * Handle the event.
      *
-     * @param  MultipleChoiceDeleted  $event
+     * @param  QuestionWithVideo  $event
      * @return void
      */
-    public function handle(MultipleChoiceDeleted $event)
+    public function handle(QuestionWithVideo $event)
     {
-        foreach ($event->multipleChoice->options as $option) {
-            $option->delete();
+        if($event->question->video != null){
+            $event->question->video->delete();
         }
     }
 }

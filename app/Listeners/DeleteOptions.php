@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\DropdownDeleted;
+use App\Events\QuestionWithOptionsDeleted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class DeleteDropdownOptions
+class DeleteOptions
 {
     /**
      * Create the event listener.
@@ -21,12 +21,12 @@ class DeleteDropdownOptions
     /**
      * Handle the event.
      *
-     * @param  DropdownDeleted  $event
+     * @param  QuestionWithOptionsDeleted  $event
      * @return void
      */
-    public function handle(DropdownDeleted $event)
+    public function handle(QuestionWithOptionsDeleted $event)
     {
-        foreach ($event->dropdown->options as $option) {
+        foreach ($event->question->options as $option) {
             $option->delete();
         }
     }

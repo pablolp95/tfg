@@ -324,11 +324,11 @@ select#shape {
     background-color: #e6e6e6;
 }
 
-li.active {
+.file-item.active {
     background-color: #0058a3;
 }
 
-li.active:hover {
+.file-item.active:hover {
     background-color: #0058a3;
 }
 

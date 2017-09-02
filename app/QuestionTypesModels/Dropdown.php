@@ -5,7 +5,7 @@ namespace App\QuestionTypesModels;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\QuestionOption;
-use App\Events\DropdownDeleted;
+use App\Events\QuestionWithOptionsDeleted;
 
 class Dropdown extends Model
 {
@@ -15,7 +15,7 @@ class Dropdown extends Model
      * @var array
      */
     protected $events = [
-        'deleted' => DropdownDeleted::class,
+        'deleted' => QuestionWithOptionsDeleted::class,
     ];
 
     /**

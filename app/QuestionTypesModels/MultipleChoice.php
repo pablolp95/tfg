@@ -5,7 +5,7 @@ namespace App\QuestionTypesModels;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\QuestionOption;
-use App\Events\MultipleChoiceDeleted;
+use App\Events\QuestionWithOptionsDeleted;
 use Illuminate\Support\Facades\Log;
 
 class MultipleChoice extends Model
@@ -16,7 +16,7 @@ class MultipleChoice extends Model
      * @var array
      */
     protected $events = [
-        'deleted' => MultipleChoiceDeleted::class,
+        'deleted' => QuestionWithOptionsDeleted::class,
     ];
 
     /**

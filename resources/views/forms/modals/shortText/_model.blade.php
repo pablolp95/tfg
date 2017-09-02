@@ -31,22 +31,43 @@
     </label>
 
     <div id="question-file" @if(!$open)class="hidden"@endif>
-        <!-- Nav tabs -->
-        <ul class="file-nav" role="tablist">
-            <li role="presentation" @if(isset($question->typable->image))class="active"@endif><a href="#image" aria-controls="image" role="tab" data-toggle="tab">Imagen</a></li>
-            <li role="presentation" @if(isset($question->typable->video))class="active"@endif><a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
-        </ul>
+        @if($open)
+            <!-- Nav tabs -->
+            <ul class="file-nav" role="tablist">
+                <li role="presentation" class="file-item{!! isset($question->typable->image) ? ' active': '' !!}"><a href="#image" aria-controls="image" role="tab" data-toggle="tab">Imagen</a></li>
+                <li role="presentation" class="file-item{!! isset($question->typable->video) ? ' active': '' !!}"><a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
+            </ul>
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane {!! isset($question->typable->image) ? 'active': '' !!}" id="image">
-                <input id="image-file" name="image-file" type="file">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane {!! isset($question->typable->image) ? 'active': '' !!}" id="image">
+                    <input id="image-file" name="image-file" type="file" value="{{isset($question) && isset($question->typable->image) ? $question->typable->image->original_filename: ''}}">
+                </div>
+                <div role="tabpanel" class="tab-pane {!! isset($question->typable->video) ? 'active': '' !!}" id="video">
+                    {!! Form::label("url", "URL:") !!}
+                    <input type="text" name="url" value="{{isset($question) && isset($question->typable->video) ? $question->typable->video->url : ''}}">
+                </div>
             </div>
-            <div role="tabpanel" class="tab-pane {!! isset($question->typable->video) ? 'active': '' !!}" id="video">
-                {!! Form::label("url", "URL:") !!}
-                <input type="text" name="url" value="{{isset($question) && isset($question->typable->video) ? $question->typable->video->url : ''}}">
+        @else
+            <!-- Nav tabs -->
+            <ul class="file-nav" role="tablist">
+                <li role="presentation" class="file-item active"><a href="#image" aria-controls="image" role="tab" data-toggle="tab">Imagen</a></li>
+                <li role="presentation" class="file-item"><a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="image">
+                    <input id="image-file" name="image-file" type="file">
+                </div>
+                <div role="tabpanel" class="tab-pane" id="video">
+                    {!! Form::label("url", "URL:") !!}
+                    <input type="text" name="url">
+                </div>
             </div>
-        </div>
+
+        @endif
+
     </div>
 </div>
 

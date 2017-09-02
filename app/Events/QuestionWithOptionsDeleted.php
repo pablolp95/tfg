@@ -9,22 +9,22 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use App\QuestionTypesModels\MultipleChoice;
+use Illuminate\Database\Eloquent\Model;
 
-class MultipleChoiceDeleted
+class QuestionWithOptionsDeleted
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $multipleChoice;
+    public $question;
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param Model $question
      */
-    public function __construct(MultipleChoice $multipleChoice)
+    public function __construct(Model $question)
     {
-        $this->multipleChoice = $multipleChoice;
+        $this->question = $question;
     }
 
     /**

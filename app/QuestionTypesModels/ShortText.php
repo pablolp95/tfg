@@ -5,9 +5,21 @@ namespace App\QuestionTypesModels;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Video;
+use App\Events\QuestionWithVideo;
+use App\Events\QuestionWithImage;
+
 
 class ShortText extends Model
 {
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $events = [
+        'deleted' => QuestionWithVideo::class,
+    ];
+
     /**
      * Get the question model.
      */

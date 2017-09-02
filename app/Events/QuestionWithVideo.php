@@ -9,22 +9,22 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use App\QuestionTypesModels\Dropdown;
+use Illuminate\Database\Eloquent\Model;
 
-class DropdownDeleted
+class QuestionWithVideo
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $dropdown;
+    public $question;
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param Model $question
      */
-    public function __construct(Dropdown $dropdown)
+    public function __construct(Model $question)
     {
-        $this->dropdown = $dropdown;
+        $this->question = $question;
     }
 
     /**

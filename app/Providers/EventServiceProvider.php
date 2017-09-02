@@ -13,11 +13,14 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\DropdownDeleted' => [
-            'App\Listeners\DeleteDropdownOptions',
+        'App\Events\QuestionWithOptionsDeleted' => [
+            'App\Listeners\DeleteOptions',
         ],
-        'App\Events\MultipleChoiceDeleted' => [
-            'App\Listeners\DeleteMultipleChoiceOptions',
+        'App\Events\QuestionWithImage' => [
+            'App\Listeners\DeleteImage',
+        ],
+        'App\Events\QuestionWithVideo' => [
+            'App\Listeners\DeleteVideo',
         ],
     ];
 
