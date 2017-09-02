@@ -1,5 +1,5 @@
 /* ---------------------------------------------------
-                    SUBNAV STYLE
+                   1.SUBNAV STYLE
 ----------------------------------------------------- */
 .return-workspace {
     position: relative;
@@ -50,7 +50,7 @@
 }
 
 /* ---------------------------------------------------
-                   QUESTIONS SIDEBAR STYLE
+                 2.QUESTIONS SIDEBAR STYLE
 ----------------------------------------------------- */
 #question-types {
     padding-top: 20px;
@@ -89,7 +89,7 @@
 }
 
 /* ---------------------------------------------------
-                   FORM STRUCTURE STYLE
+                 3.FORM STRUCTURE STYLE
 ----------------------------------------------------- */
 .form-structure {
     background: #F1F1F1;
@@ -241,7 +241,7 @@
 }
 
 /* ---------------------------------------------------
-               QUESTION OPTIONS STYLE
+             4.QUESTION OPTIONS STYLE
 ----------------------------------------------------- */
 .option-item, #add-option-item {
     position: relative;
@@ -300,4 +300,45 @@
 
 select#shape {
     font-family: FontAwesome, sans-serif;
+}
+
+/* ---------------------------------------------------
+              5.QUESTION FILE STYLE
+----------------------------------------------------- */
+.file-nav {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.file-nav > li {
+    position: relative;
+    display: block;
+    float: left;
+    width: 50%;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.file-nav > li:hover {
+    background-color: #e6e6e6;
+}
+
+li.active {
+    background-color: #0058a3;
+}
+
+li.active:hover {
+    background-color: #0058a3;
+}
+
+li.active > a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.file-nav > li a {
+    padding: 5px;
+    display: block;
+    text-decoration: none;
 }

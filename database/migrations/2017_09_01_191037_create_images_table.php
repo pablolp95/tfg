@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShortTextsTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateShortTextsTable extends Migration
      */
     public function up()
     {
-        Schema::create('short_texts', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('url')->nullable();
-            $table->string('max_num_characters')->nullable();
-            $table->boolean('required');
-
+            $table->string('filename');
+            $table->string('original_filename');
+            $table->string('mime');
+            $table->integer('question_id');
+            $table->string('question_type');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateShortTextsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('short_texts');
+        Schema::dropIfExists('images');
     }
 }

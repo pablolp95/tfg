@@ -16,6 +16,22 @@ class Number extends Model
     }
 
     /**
+     * Get the image model.
+     */
+    public function image()
+    {
+        return $this->morphOne('App\Image', 'question');
+    }
+
+    /**
+     * Get the video model.
+     */
+    public function video()
+    {
+        return $this->morphOne('App\Video', 'question');
+    }
+
+    /**
      * Basic save operation used for update & store.
      *
      * @param Request $request

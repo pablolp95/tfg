@@ -4,6 +4,7 @@ namespace App\QuestionTypesModels;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Video;
 
 class ShortText extends Model
 {
@@ -13,6 +14,22 @@ class ShortText extends Model
     public function question()
     {
         return $this->morphOne('App\Question', 'typable');
+    }
+
+    /**
+     * Get the image model.
+     */
+    public function image()
+    {
+        return $this->morphOne('App\Image', 'question');
+    }
+
+    /**
+     * Get the video model.
+     */
+    public function video()
+    {
+        return $this->morphOne('App\Video', 'question');
     }
 
     /**
@@ -28,5 +45,23 @@ class ShortText extends Model
         $this->required = $request->input('required');
 
         ($save) ? $this->save() : null;
+
+        $video_url = $request->input('url');
+        if(isset($video_url)) {
+            $current_video = $this->video;
+
+            if(is_null($current_video) || empty($current_video)){
+                $current_video = new Video();
+            }
+
+            $current_video->url = $video_url;
+            $this->video()->save($current_video);
+        }
+        else{
+            if($this->video != null){
+                $this->video->delete();
+
+            }
+        }
     }
 }

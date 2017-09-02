@@ -6,7 +6,6 @@
 
 @section('css')
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
-    <link href="{{ asset('components/bootstrap-toggle/css/bootstrap-toggle.css') }}" rel="stylesheet">
     <link href="{{ asset('components/components-font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 @endsection
 

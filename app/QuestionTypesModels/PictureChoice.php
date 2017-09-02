@@ -12,7 +12,7 @@ class PictureChoice extends Model
      */
     public function options()
     {
-        return $this->morphMany('App\QuestionOption', 'typable');
+        return $this->hasMany('App\ImageOption');
     }
 
     /**
