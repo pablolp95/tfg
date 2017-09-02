@@ -5,7 +5,7 @@
             <h4 class="modal-title" id="myModalLabel">Respuesta corta</h4>
         </div>
         <div class="modal-body">
-            {!! Form::model($question,["method" => "put", "route" => array("questions.update", $question->id), "enctype" => "multipart/form-data", "id" => "question-form"]) !!}
+            {!! Form::model($question,["method" => "put", "route" => array("questions.update", $question->id), "id" => "question-form"]) !!}
             @include('forms.modals.shortText._model')
             {!! Form::close() !!}
         </div>

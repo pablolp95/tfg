@@ -18,6 +18,7 @@ class CreateImagesTable extends Migration
             $table->timestamps();
 
             $table->string('filename');
+            $table->string('original_filename');
             $table->string('mime');
             $table->integer('question_id');
             $table->string('question_type');

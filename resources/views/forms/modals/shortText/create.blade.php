@@ -5,7 +5,7 @@
             <h4 class="modal-title" id="myModalLabel">Respuesta corta</h4>
         </div>
         <div class="modal-body">
-            {!! Form::open(["method" => "post", "route" => "questions.store", "enctype" => "multipart/form-data", "id" => "question-form"]) !!}
+            {!! Form::open(["method" => "post", "route" => "questions.store", "id" => "question-form"]) !!}
             <input type="hidden" name="type" value="ShortText">
             <input id="form_id" type="hidden" name="form_id" value="">
             <input id="icon" type="hidden" name="icon" value="">

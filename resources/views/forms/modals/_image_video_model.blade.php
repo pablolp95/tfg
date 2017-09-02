@@ -43,7 +43,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div id="image" role="tabpanel" class="tab-pane active">
-                <input id="image_file" name="image" type="file">
+                <input id="image_file" name="image_file" type="file">
             </div>
             <div id="video" role="tabpanel" class="tab-pane">
                 {!! Form::label("url", "URL:") !!}
@@ -67,12 +67,12 @@
             }
         });
 
-        $('a[data-toggle="tab"][href="#image"]').on('shown.bs.tab', function (e) {
+        $('a[data-toggle="tab"][href="#image"]').on('shown.bs.tab', function () {
             $('#image_file').prop('disabled', false);
             $('#video_url').prop('disabled', true);
         });
 
-        $('a[data-toggle="tab"][href="#video"]').on('shown.bs.tab', function (e) {
+        $('a[data-toggle="tab"][href="#video"]').on('shown.bs.tab', function () {
             $('#video_url').prop('disabled', false);
             $('#image_file').prop('disabled', true);
         });

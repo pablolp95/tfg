@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\QuestionFile;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Storage;
 
 class DeleteFile
 {
@@ -27,6 +28,7 @@ class DeleteFile
     public function handle(QuestionFile $event)
     {
         if(isset($event->question->image)){
+            Storage::delete($event->question->image->filename);
             $event->question->image->delete();
         }
 

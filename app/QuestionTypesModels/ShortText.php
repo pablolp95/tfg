@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Video;
 use App\Events\QuestionFile;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Support\Facades\Storage;
 
 class ShortText extends Model
 {
@@ -73,6 +73,7 @@ class ShortText extends Model
             $this->video()->save($current_video);
         }
         else{
+            Log::info('no video');
             if($this->video != null){
                 $this->video->delete();
             }
@@ -87,14 +88,17 @@ class ShortText extends Model
                 $current_image = new Image();
             }
 
-            $name = $request->file('image_file')->path();
-            $current_image->filename = $request->photo->storeAs('images', $name);
+            $name = $request->file('image_file')->getClientOriginalName();
+            $current_image->filename = $request->file('image_file')->store('public/images');
+            $current_image->original_filename = $name;
             $current_image->mime = $request->file('image_file')->extension();
 
-            $this->video()->save($current_image);
+            $this->image()->save($current_image);
         }
         else{
+            Log::info('no image');
             if($this->image != null){
+                Storage::delete($this->image->filename);
                 $this->image->delete();
             }
         }

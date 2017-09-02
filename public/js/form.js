@@ -120,18 +120,23 @@ $(document).ready(function(){
 
     //Añadir una nueva pregunta al formulario
     $(document).on('click', '#add-question', function () {
-        //Añado el id del formulario de la pregunta a almacenar
-        $('#form_id').val(form_id);
-        $('#icon').val($('#null').data('icon'));
+        $('#form_id').val(form_id); //Añado el id del formulario al input oculto
+        $('#icon').val($('#null').data('icon')); //Añado el tipo de icono al input oculto
         var position = $('#form-questions').find('li.question-item').length - 1;
-        $('#question-position').val(position);
+        $('#question-position').val(position); //Añado la posicion al input oculto
+
         var question_id = '';
+        var form = $('#question-form')[0]; // You need to use standard javascript object here
+        var formData = new FormData(form);
 
         //Petición de creación de la pregunta
         $.ajax({
             type: 'post',
             url: '/questions',
-            data: $('#question-form').serialize(),
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
             success: function(model_json) {
                 $model = JSON.parse(model_json);
                 question_id = "question-"+$model.id;
@@ -146,6 +151,28 @@ $(document).ready(function(){
                 $('html').html(m.responseText);
             }
         });
+        /*
+        var question_id = '#question-'+$('#edit-question').val();
+        var form = $('#question-form')[0]; // You need to use standard javascript object here
+        var formData = new FormData(form);
+
+        $.ajax({
+            url: $('#question-form').prop('action'),
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'POST',
+            success: function(model_json) {
+                $model = JSON.parse(model_json);
+                $(question_id+' .question-label').html($model.text);
+                $('#edit-question-modal').modal('hide');
+            },
+            error: function(message) {
+                console.log(message);
+            }
+        });
+        * */
     });
 
     //Quita de la lista la pregunta si se cancela la operación de añadir una nueva
@@ -235,14 +262,17 @@ $(document).ready(function(){
 
     //Actualizar una pregunta
     $(document).on('click', '#edit-question', function () {
-        var form = $('#question-form');
         var question_id = '#question-'+$('#edit-question').val();
+        var form = $('#question-form')[0]; // You need to use standard javascript object here
+        var formData = new FormData(form);
 
-        //Petición de actualización de la pregunta
         $.ajax({
-            type: 'post',
-            url: form.prop('action'),
-            data: form.serialize(),
+            url: $('#question-form').prop('action'),
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'POST',
             success: function(model_json) {
                 $model = JSON.parse(model_json);
                 $(question_id+' .question-label').html($model.text);
