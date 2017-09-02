@@ -2,11 +2,12 @@
 
 namespace App\QuestionTypesModels;
 
+use App\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Video;
-use App\Events\QuestionWithVideo;
-use App\Events\QuestionWithImage;
+use App\Events\QuestionFile;
+use Illuminate\Support\Facades\Log;
 
 
 class ShortText extends Model
@@ -17,7 +18,7 @@ class ShortText extends Model
      * @var array
      */
     protected $events = [
-        'deleted' => QuestionWithVideo::class,
+        'deleted' => QuestionFile::class,
     ];
 
     /**
@@ -58,8 +59,10 @@ class ShortText extends Model
 
         ($save) ? $this->save() : null;
 
+        //Creación/actualización video asociado
         $video_url = $request->input('url');
         if(isset($video_url)) {
+            Log::info('si video');
             $current_video = $this->video;
 
             if(is_null($current_video) || empty($current_video)){
@@ -72,7 +75,27 @@ class ShortText extends Model
         else{
             if($this->video != null){
                 $this->video->delete();
+            }
+        }
 
+        //Creación/actualización imagen asociada
+        if($request->hasFile('image_file')) {
+            Log::info('si image');
+            $current_image = $this->image;
+
+            if(is_null($current_image) || empty($current_image)){
+                $current_image = new Image();
+            }
+
+            $name = $request->file('image_file')->path();
+            $current_image->filename = $request->photo->storeAs('images', $name);
+            $current_image->mime = $request->file('image_file')->extension();
+
+            $this->video()->save($current_image);
+        }
+        else{
+            if($this->image != null){
+                $this->image->delete();
             }
         }
     }

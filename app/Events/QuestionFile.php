@@ -11,7 +11,7 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Database\Eloquent\Model;
 
-class QuestionWithVideo
+class QuestionFile
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -20,7 +20,7 @@ class QuestionWithVideo
     /**
      * Create a new event instance.
      *
-     * @param Model $question
+     * @return void
      */
     public function __construct(Model $question)
     {

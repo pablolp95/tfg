@@ -16,11 +16,8 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\QuestionWithOptionsDeleted' => [
             'App\Listeners\DeleteOptions',
         ],
-        'App\Events\QuestionWithImage' => [
-            'App\Listeners\DeleteImage',
-        ],
-        'App\Events\QuestionWithVideo' => [
-            'App\Listeners\DeleteVideo',
+        'App\Events\QuestionFile' => [
+            'App\Listeners\DeleteFile',
         ],
     ];
 
