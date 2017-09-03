@@ -1,6 +1,6 @@
 <?php
 
-namespace App\QuestionTypesModels;
+namespace App\Models\QuestionTypes;
 
 use App\Events\DeleteQuestion;
 use App\Events\SaveQuestion;

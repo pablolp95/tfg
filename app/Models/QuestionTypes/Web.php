@@ -1,11 +1,11 @@
 <?php
 
-namespace App\QuestionTypesModels;
+namespace App\Models\QuestionTypes;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class Legal extends Model
+class Web extends Model
 {
     /**
      * Get the question model.

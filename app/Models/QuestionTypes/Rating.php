@@ -1,13 +1,13 @@
 <?php
 
-namespace App\QuestionTypesModels;
+namespace App\Models\QuestionTypes;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use App\Events\DeleteQuestion;
 use App\Events\SaveQuestion;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
-class Email extends Model
+class Rating extends Model
 {
     /**
      * The event map for the model.
@@ -52,6 +52,8 @@ class Email extends Model
      */
     public function silentSave(Request $request, $save = true)
     {
+        $this->range = $request->input('range');
+        $this->shape = $request->input('shape');
         $this->required = $request->input('required');
 
         ($save) ? $this->save() : null;

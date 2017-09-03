@@ -1,14 +1,13 @@
 <?php
 
-namespace App\QuestionTypesModels;
+namespace App\Models\QuestionTypes;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Events\DeleteQuestion;
 use App\Events\SaveQuestion;
 
-
-class ShortText extends Model
+class LongText extends Model
 {
     /**
      * The event map for the model.
@@ -53,8 +52,8 @@ class ShortText extends Model
      */
     public function silentSave(Request $request, $save = true)
     {
-        $this->max_num_characters = $request->input('max_num_characters');
         $this->required = $request->input('required');
+        $this->max_num_characters = $request->input('max_num_characters');
 
         ($save) ? $this->save() : null;
     }

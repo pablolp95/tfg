@@ -1,15 +1,17 @@
 <?php
 
-namespace App\QuestionTypesModels;
+namespace App\Models\QuestionTypes;
 
+use App\Events\SaveQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\QuestionOption;
 use App\Events\DeleteQuestion;
-use App\Events\SaveQuestion;
+use Illuminate\Support\Facades\Log;
 
-class Dropdown extends Model
+class MultipleChoice extends Model
 {
+
     /**
      * The event map for the model.
      *
@@ -21,19 +23,19 @@ class Dropdown extends Model
     ];
 
     /**
-     * Get the question model.
-     */
-    public function question()
-    {
-        return $this->morphOne('App\Question', 'typable');
-    }
-
-    /**
      * Get the options.
      */
     public function options()
     {
         return $this->morphMany('App\QuestionOption', 'typable');
+    }
+
+    /**
+     * Get the question model.
+     */
+    public function question()
+    {
+        return $this->morphOne('App\Question', 'typable');
     }
 
     /**
@@ -62,6 +64,12 @@ class Dropdown extends Model
     public function silentSave(Request $request, $save = true)
     {
         $this->required = $request->input('required');
+        $this->multiple = $request->input('multiple');
+        $this->random = $request->input('random');
+        $this->vertical = $request->input('vertical');
+        $this->other = $request->input('other');
+
+        Log::info($request);
 
         ($save) ? $this->save() : null;
 
@@ -101,4 +109,5 @@ class Dropdown extends Model
         }
 
     }
+
 }

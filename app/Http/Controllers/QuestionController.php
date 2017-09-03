@@ -44,7 +44,7 @@ class QuestionController extends Controller
         $question->form_id = $request->input('form_id');
         $question->position = $request->input('position');
 
-        $className = 'App\\QuestionTypesModels\\' . $request->input('type');
+        $className = 'App\\Models\\QuestionTypes\\' . $request->input('type');
         $type = new $className;
 
         $this->silentSave($question, $type, $request);

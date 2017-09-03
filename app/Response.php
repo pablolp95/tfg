@@ -4,16 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Response extends Model
 {
-    /**
-     * Get type of question
-     */
-    public function typable()
-    {
-        return $this->morphTo();
-    }
-
     /**
      * Get the form that owns the question.
      */
@@ -23,7 +15,7 @@ class Question extends Model
     }
 
     /**
-     * Get the form that owns the question.
+     * Get the answers of the response
      */
     public function answers()
     {

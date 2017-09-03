@@ -56,8 +56,10 @@ class SaveFile
             if(is_null($current_image) || empty($current_image)){
                 $current_image = new Image();
             }
+            else{
+                Storage::delete($question->image->filename);
+            }
 
-            Storage::delete($question->image->filename);
             $name = $this->request->file('image_file')->getClientOriginalName();
             $current_image->filename = $this->request->file('image_file')->store('public/images');
             $current_image->original_filename = $name;

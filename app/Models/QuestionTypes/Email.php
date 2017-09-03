@@ -1,13 +1,13 @@
 <?php
 
-namespace App\QuestionTypesModels;
+namespace App\Models\QuestionTypes;
 
-use App\Events\DeleteQuestion;
-use App\Events\SaveQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Events\DeleteQuestion;
+use App\Events\SaveQuestion;
 
-class Hour extends Model
+class Email extends Model
 {
     /**
      * The event map for the model.

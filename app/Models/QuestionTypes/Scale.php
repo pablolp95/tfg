@@ -1,13 +1,13 @@
 <?php
 
-namespace App\QuestionTypesModels;
+namespace App\Models\QuestionTypes;
 
 use App\Events\DeleteQuestion;
 use App\Events\SaveQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class YesNo extends Model
+class Scale extends Model
 {
     /**
      * The event map for the model.
@@ -52,6 +52,10 @@ class YesNo extends Model
      */
     public function silentSave(Request $request, $save = true)
     {
+        $this->range_min = $request->input('range_min');
+        $this->range_max = $request->input('range_max');
+        $this->left_tag = $request->input('left_tag');
+        $this->right_tag = $request->input('right_tag');
         $this->required = $request->input('required');
 
         ($save) ? $this->save() : null;

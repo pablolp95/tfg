@@ -11,7 +11,7 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-        $type = new \App\QuestionTypesModels\ShortText();
+        $type = new \App\Models\QuestionTypes\ShortText();
         $type->max_num_characters = '12';
         $type->required = '0';
         $type->save();
@@ -24,7 +24,7 @@ class QuestionSeeder extends Seeder
         $question->position = '0';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\LongText();
+        $type = new \App\Models\QuestionTypes\LongText();
         $type->required = '0';
         $type->save();
         $question = new App\Question();
@@ -36,7 +36,7 @@ class QuestionSeeder extends Seeder
         $question->position = '1';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Declaration();
+        $type = new \App\Models\QuestionTypes\Declaration();
         $type->button_text = 'Continuar';
         $type->save();
         $question = new App\Question();
@@ -47,7 +47,7 @@ class QuestionSeeder extends Seeder
         $question->position = '2';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Dropdown();
+        $type = new \App\Models\QuestionTypes\Dropdown();
         $type->required = '0';
         $type->save();
         $option = new \App\QuestionOption();
@@ -66,7 +66,7 @@ class QuestionSeeder extends Seeder
         $question->position = '3';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Email();
+        $type = new \App\Models\QuestionTypes\Email();
         $type->required = '0';
         $type->save();
         $question = new App\Question();
@@ -78,7 +78,7 @@ class QuestionSeeder extends Seeder
         $question->position = '4';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Date();
+        $type = new \App\Models\QuestionTypes\Date();
         $type->format = 'DD/MM/YYYY';
         $type->required = '0';
         $type->save();
@@ -90,7 +90,7 @@ class QuestionSeeder extends Seeder
         $question->position = '5';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Legal();
+        $type = new \App\Models\QuestionTypes\Legal();
         $type->required = '0';
         $type->save();
         $question = new App\Question();
@@ -102,7 +102,7 @@ class QuestionSeeder extends Seeder
         $question->position = '6';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Web();
+        $type = new \App\Models\QuestionTypes\Web();
         $type->required = '0';
         $type->save();
         $question = new App\Question();
@@ -113,7 +113,7 @@ class QuestionSeeder extends Seeder
         $question->position = '7';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\MultipleChoice();
+        $type = new \App\Models\QuestionTypes\MultipleChoice();
         $type->required = '0';
         $type->multiple = '0';
         $type->random = '0';
@@ -136,7 +136,7 @@ class QuestionSeeder extends Seeder
         $question->position = '8';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\MultipleChoice();
+        $type = new \App\Models\QuestionTypes\MultipleChoice();
         $type->required = '0';
         $type->multiple = '1';
         $type->random = '0';
@@ -159,7 +159,7 @@ class QuestionSeeder extends Seeder
         $question->position = '9';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\YesNo();
+        $type = new \App\Models\QuestionTypes\YesNo();
         $type->required = '0';
         $type->save();
         $question = new App\Question();
@@ -170,7 +170,7 @@ class QuestionSeeder extends Seeder
         $question->position = '10';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Rating();
+        $type = new \App\Models\QuestionTypes\Rating();
         $type->range = '10';
         $type->shape = 'star';
         $type->required = '0';
@@ -183,7 +183,7 @@ class QuestionSeeder extends Seeder
         $question->position = '11';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Scale();
+        $type = new \App\Models\QuestionTypes\Scale();
         $type->range_min = '0';
         $type->range_max = '10';
         $type->left_tag = 'Etiqueta izquierda';
@@ -191,20 +191,20 @@ class QuestionSeeder extends Seeder
         $type->required = '0';
         $type->save();
         $question = new App\Question();
-        $question->text = 'En que esacla estamos';
+        $question->text = 'En qué escala estamos';
         $question->icon = 'transfer';
         $question->form_id = '1';
         $question->last_update_user_id = '3';
         $question->position = '12';
         $type->question()->save($question);
 
-        $type = new \App\QuestionTypesModels\Number();
+        $type = new \App\Models\QuestionTypes\Number();
         $type->range_min = '0';
         $type->range_max = '10';
         $type->required = '0';
         $type->save();
         $question = new App\Question();
-        $question->text = 'Cuantos años tienes';
+        $question->text = 'Dígame un número del 0 al 10';
         $question->icon = 'text-width';
         $question->form_id = '1';
         $question->last_update_user_id = '3';

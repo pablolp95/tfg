@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Answer extends Model
 {
     /**
-     * Get type of question
+     * Get type of answer
      */
     public function typable()
     {
@@ -17,16 +17,16 @@ class Question extends Model
     /**
      * Get the form that owns the question.
      */
-    public function form()
+    public function response()
     {
-        return $this->belongsTo('App\Form');
+        return $this->belongsTo('App\Response');
     }
 
     /**
      * Get the form that owns the question.
      */
-    public function answers()
+    public function question()
     {
-        return $this->hasMany('App\Answer');
+        return $this->belongsTo('App\Question');
     }
 }
