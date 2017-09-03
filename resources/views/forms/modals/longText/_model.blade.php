@@ -13,6 +13,8 @@
     {!! Form::text("max_num_characters", isset($question) ? $question->typable->max_num_characters : null, ["id" => "max_num_characters"]) !!}
 </div>
 
+@include('forms.modals._image_video_model')
+
 <div class="question-field">
     {!! Form::label("required", "Obligatoria:") !!}
     <label class="radio-inline">

@@ -4,9 +4,21 @@ namespace App\QuestionTypesModels;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Events\DeleteQuestion;
+use App\Events\SaveQuestion;
 
 class Email extends Model
 {
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $events = [
+        'deleted' => DeleteQuestion::class,
+        'saved' => SaveQuestion::class,
+    ];
+
     /**
      * Get the question model.
      */

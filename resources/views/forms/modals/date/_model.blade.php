@@ -13,6 +13,8 @@
     {!! Form::select('format', ['DD/MM/YYYY' => 'DD/MM/YYYY', 'MM/DD/YYYY' => 'MM/DD/YYYY', 'YYYY/MM/DD' => 'YYYY/MM/DD'], isset($question) ? $question->typable->format : 'DD/MM/YYYY') !!}
 </div>
 
+@include('forms.modals._image_video_model')
+
 <div class="question-field">
     {!! Form::label("required", "Obligatoria:") !!}
     <label class="radio-inline">

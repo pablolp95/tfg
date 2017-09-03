@@ -15,6 +15,8 @@
     {!! Form::text("range_max", isset($question) ? $question->typable->range_max : null, ["id" => "range_max"]) !!}
 </div>
 
+@include('forms.modals._image_video_model')
+
 <div class="question-field">
     {!! Form::label("required", "Obligatoria:") !!}
     <label class="radio-inline">

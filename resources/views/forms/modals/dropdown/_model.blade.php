@@ -28,6 +28,8 @@
 
 </div>
 
+@include('forms.modals._image_video_model')
+
 <div class="question-field">
     {!! Form::label("required", "Obligatoria:") !!}
     <label class="radio-inline">

@@ -24,10 +24,10 @@ class CreateQuestionsTable extends Migration
 
             $table->integer('form_id')->index()->unsigned();
             $table->integer('last_update_user_id')->index()->unsigned();
+            $table->integer('position');
 
             $table->integer('typable_id');
             $table->string('typable_type');
-            $table->integer('position');
         });
 
         Schema::table('questions', function(Blueprint $table) {

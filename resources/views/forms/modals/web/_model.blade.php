@@ -8,6 +8,8 @@
     {!! Form::textarea("description", null, ["id" => "description", "class" => "form-control","rows" => "4"]) !!}
 </div>
 
+@include('forms.modals._image_video_model')
+
 <div class="question-field">
     {!! Form::label("required", "Obligatoria:") !!}
     <label class="radio-inline">

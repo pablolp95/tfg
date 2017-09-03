@@ -17,8 +17,8 @@ class CreateScalesTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('range_min')->nullable();
-            $table->string('range_max')->nullable();
+            $table->string('range_min');
+            $table->string('range_max');
             $table->string('left_tag')->nullable();
             $table->string('right_tag')->nullable();
             $table->boolean('required');

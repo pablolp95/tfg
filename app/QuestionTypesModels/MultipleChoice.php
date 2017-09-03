@@ -2,21 +2,24 @@
 
 namespace App\QuestionTypesModels;
 
+use App\Events\SaveQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\QuestionOption;
-use App\Events\QuestionWithOptionsDeleted;
+use App\Events\DeleteQuestion;
 use Illuminate\Support\Facades\Log;
 
 class MultipleChoice extends Model
 {
+
     /**
      * The event map for the model.
      *
      * @var array
      */
     protected $events = [
-        'deleted' => QuestionWithOptionsDeleted::class,
+        'deleted' => DeleteQuestion::class,
+        'saved' => SaveQuestion::class,
     ];
 
     /**

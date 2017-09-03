@@ -13,11 +13,12 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\QuestionWithOptionsDeleted' => [
+        'App\Events\DeleteQuestion' => [
             'App\Listeners\DeleteOptions',
-        ],
-        'App\Events\QuestionFile' => [
             'App\Listeners\DeleteFile',
+        ],
+        'App\Events\SaveQuestion' => [
+            'App\Listeners\SaveFile',
         ],
     ];
 

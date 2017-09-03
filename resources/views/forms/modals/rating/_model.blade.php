@@ -13,6 +13,8 @@
     {!! Form::text("range", isset($question) ? $question->typable->range : null, ["id" => "range"]) !!}
 </div>
 
+@include('forms.modals._image_video_model')
+
 <div class="question-field">
     {{--{!! Form::label("shape", "Forma") !!}
     {!! Form::select('shape', ['star' => 'Estrella',

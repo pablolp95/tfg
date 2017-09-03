@@ -2,7 +2,6 @@
 
 namespace App\Listeners;
 
-use App\Events\QuestionWithOptionsDeleted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -21,13 +20,16 @@ class DeleteOptions
     /**
      * Handle the event.
      *
-     * @param  QuestionWithOptionsDeleted  $event
+     * @param  $event
      * @return void
      */
-    public function handle(QuestionWithOptionsDeleted $event)
+    public function handle($event)
     {
-        foreach ($event->question->options as $option) {
-            $option->delete();
+        if(count($event->question->options)){
+            foreach ($event->question->options as $option) {
+                $option->delete();
+            }
         }
+
     }
 }

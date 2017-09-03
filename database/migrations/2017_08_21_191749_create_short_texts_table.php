@@ -17,7 +17,6 @@ class CreateShortTextsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('url')->nullable();
             $table->string('max_num_characters')->nullable();
             $table->boolean('required');
 

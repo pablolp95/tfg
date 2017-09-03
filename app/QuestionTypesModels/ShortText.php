@@ -2,13 +2,11 @@
 
 namespace App\QuestionTypesModels;
 
-use App\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\Video;
-use App\Events\QuestionFile;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
+use App\Events\DeleteQuestion;
+use App\Events\SaveQuestion;
+
 
 class ShortText extends Model
 {
@@ -18,7 +16,8 @@ class ShortText extends Model
      * @var array
      */
     protected $events = [
-        'deleted' => QuestionFile::class,
+        'deleted' => DeleteQuestion::class,
+        'saved' => SaveQuestion::class,
     ];
 
     /**
@@ -58,49 +57,5 @@ class ShortText extends Model
         $this->required = $request->input('required');
 
         ($save) ? $this->save() : null;
-
-        //Creación/actualización video asociado
-        $video_url = $request->input('url');
-        if(isset($video_url)) {
-            Log::info('si video');
-            $current_video = $this->video;
-
-            if(is_null($current_video) || empty($current_video)){
-                $current_video = new Video();
-            }
-
-            $current_video->url = $video_url;
-            $this->video()->save($current_video);
-        }
-        else{
-            Log::info('no video');
-            if($this->video != null){
-                $this->video->delete();
-            }
-        }
-
-        //Creación/actualización imagen asociada
-        if($request->hasFile('image_file')) {
-            Log::info('si image');
-            $current_image = $this->image;
-
-            if(is_null($current_image) || empty($current_image)){
-                $current_image = new Image();
-            }
-
-            $name = $request->file('image_file')->getClientOriginalName();
-            $current_image->filename = $request->file('image_file')->store('public/images');
-            $current_image->original_filename = $name;
-            $current_image->mime = $request->file('image_file')->extension();
-
-            $this->image()->save($current_image);
-        }
-        else{
-            Log::info('no image');
-            if($this->image != null){
-                Storage::delete($this->image->filename);
-                $this->image->delete();
-            }
-        }
     }
 }

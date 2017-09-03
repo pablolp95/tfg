@@ -11,11 +11,12 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Database\Eloquent\Model;
 
-class QuestionFile
+class SaveQuestion
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $question;
+    public $request;
 
     /**
      * Create a new event instance.

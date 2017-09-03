@@ -2,11 +2,23 @@
 
 namespace App\QuestionTypesModels;
 
+use App\Events\DeleteQuestion;
+use App\Events\SaveQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class Date extends Model
 {
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $events = [
+        'deleted' => DeleteQuestion::class,
+        'saved' => SaveQuestion::class,
+    ];
+
     /**
      * Get the question model.
      */
