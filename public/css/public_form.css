@@ -1,0 +1,16 @@
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+#wrapper {
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+}
+
+.description {
+    position: relative;
+    max-height: 150px;
+    overflow: auto;
+}

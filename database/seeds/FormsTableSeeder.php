@@ -14,14 +14,14 @@ class FormsTableSeeder extends Seeder
     {
         $form = new Form();
         $form->name = 'Mi formulario';
-        $form->workspace_id = '1';
-        $form->last_update_user_id = '3';
+        $form->workspace_id = '3';
+        $form->last_update_user_id = '4';
         $form->save();
 
         $form = new Form();
         $form->name = 'Mi formulario 2';
-        $form->workspace_id = '1';
-        $form->last_update_user_id = '3';
+        $form->workspace_id = '3';
+        $form->last_update_user_id = '4';
         $form->save();
     }
 }

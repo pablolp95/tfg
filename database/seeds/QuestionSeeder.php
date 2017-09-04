@@ -16,7 +16,7 @@ class QuestionSeeder extends Seeder
         $type->required = '0';
         $type->save();
         $question = new App\Question();
-        $question->text = '¿Cuantos años tienes?';
+        $question->text = '¿Cual es tu nombre?';
         $question->description = 'Es solo por saberlo';
         $question->icon = 'text-width';
         $question->form_id = '1';
@@ -29,7 +29,7 @@ class QuestionSeeder extends Seeder
         $type->save();
         $question = new App\Question();
         $question->text = 'Háblame de ti';
-        $question->description = 'Es solo por saberlo';
+        $question->description = 'A qúe te dedicas,...';
         $question->icon = 'text-height';
         $question->form_id = '1';
         $question->last_update_user_id = '3';

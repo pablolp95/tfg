@@ -49,6 +49,22 @@
     text-decoration: none;
 }
 
+#show-form {
+    position: relative;
+    float: right;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6px;
+    background-color: #FFFFFF;
+    font-size: 1.2em;
+
+}
+
+#show-form a:hover {
+    text-decoration: none;
+
+}
+
 /* ---------------------------------------------------
                  2.QUESTIONS SIDEBAR STYLE
 ----------------------------------------------------- */

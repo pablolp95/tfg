@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\AnswerTypes;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,5 +12,16 @@ class LegalAnswer extends Model
     public function answer()
     {
         return $this->morphOne('App\Answer', 'typable');
+    }
+
+    /**
+     * Basic save operation used for update & store.
+     *
+     * @param $value
+     * @return mixed
+     */
+    public  function silentSave($value) {
+        $this->answer = $value;
+        $this->save();
     }
 }

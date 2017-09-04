@@ -30,15 +30,15 @@
                             <a href=" {{route('forms.show',['id' => $form->id])}} ">Construir</a>
                         </li>
                         <li>
-                            <a href=" {{route('forms.design',['id' => $form->id])}} ">Diseño</a>
-                        </li>
-                        <li>
                             <a href=" {{route('forms.share',['id' => $form->id])}} ">Compartir</a>
                         </li>
                         <li>
                             <a href=" {{route('forms.analyze',['id' => $form->id])}} ">Analizar</a>
                         </li>
                     </ul>
+                </div>
+                <div id="show-form">
+                    <a href="{{ url('/view/form/'.$form->id) }}">Ver formulario</a>
                 </div>
             </div>
         </div>
