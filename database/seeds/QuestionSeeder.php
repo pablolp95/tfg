@@ -170,19 +170,6 @@ class QuestionSeeder extends Seeder
         $question->position = '10';
         $type->question()->save($question);
 
-        $type = new \App\Models\QuestionTypes\Rating();
-        $type->range = '10';
-        $type->shape = 'star';
-        $type->required = '0';
-        $type->save();
-        $question = new App\Question();
-        $question->text = 'Puntuanos';
-        $question->icon = 'star';
-        $question->form_id = '1';
-        $question->last_update_user_id = '3';
-        $question->position = '11';
-        $type->question()->save($question);
-
         $type = new \App\Models\QuestionTypes\Scale();
         $type->range_min = '0';
         $type->range_max = '10';
@@ -195,7 +182,7 @@ class QuestionSeeder extends Seeder
         $question->icon = 'transfer';
         $question->form_id = '1';
         $question->last_update_user_id = '3';
-        $question->position = '12';
+        $question->position = '11';
         $type->question()->save($question);
 
         $type = new \App\Models\QuestionTypes\Number();
@@ -208,7 +195,7 @@ class QuestionSeeder extends Seeder
         $question->icon = 'text-width';
         $question->form_id = '1';
         $question->last_update_user_id = '3';
-        $question->position = '13';
+        $question->position = '12';
         $type->question()->save($question);
 
 

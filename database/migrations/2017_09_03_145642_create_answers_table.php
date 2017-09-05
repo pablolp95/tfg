@@ -19,9 +19,8 @@ class CreateAnswersTable extends Migration
 
             $table->integer('response_id')->index()->unsigned();
             $table->integer('question_id')->index()->unsigned();
+            $table->string('value');
 
-            $table->integer('typable_id');
-            $table->string('typable_type');
         });
 
         Schema::table('answers', function(Blueprint $table) {

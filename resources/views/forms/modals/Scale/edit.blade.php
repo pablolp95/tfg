@@ -6,7 +6,7 @@
         </div>
         <div class="modal-body">
             {!! Form::model($question,["method" => "put", "route" => array("questions.update", $question->id), "id" => "question-form"]) !!}
-            @include('forms.modals.scale._model')
+            @include('forms.modals.Scale._model')
             {!! Form::close() !!}
         </div>
         <div class="modal-footer">
