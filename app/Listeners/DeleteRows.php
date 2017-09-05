@@ -2,10 +2,11 @@
 
 namespace App\Listeners;
 
+use App\Events\DeleteOptionsQuestion;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class DeleteOptions
+class DeleteRows
 {
     /**
      * Create the event listener.
@@ -20,14 +21,14 @@ class DeleteOptions
     /**
      * Handle the event.
      *
-     * @param  $event
+     * @param  DeleteOptionsQuestion  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(DeleteOptionsQuestion $event)
     {
-        if(count($event->question->options)){
-            foreach ($event->question->options as $option) {
-                $option->delete();
+        if(count($event->question->columns)){
+            foreach ($event->question->columns as $column) {
+                $column->delete();
             }
         }
     }

@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
             'Declaration' => 'App\Models\QuestionTypes\Declaration',
             'Dropdown' => 'App\Models\QuestionTypes\Dropdown',
             'Email' => 'App\Models\QuestionTypes\Email',
+            'Grid' => 'App\Models\QuestionTypes\Grid',
             'Hour' => 'App\Models\QuestionTypes\Hour',
             'Legal' => 'App\Models\QuestionTypes\Legal',
             'LongText' => 'App\Models\QuestionTypes\LongText',
@@ -30,23 +31,7 @@ class AppServiceProvider extends ServiceProvider
             'Scale' => 'App\Models\QuestionTypes\Scale',
             'ShortText' => 'App\Models\QuestionTypes\ShortText',
             'Web' => 'App\Models\QuestionTypes\Web',
-            'YesNo' => 'App\Models\QuestionTypes\YesNo',
-
-            'DateAnswer' => 'App\Models\AnswerTypes\DateAnswer',
-            'DeclarationAnswer' => 'App\Models\AnswerTypes\DeclarationAnswer',
-            'DropdownAnswer' => 'App\Models\AnswerTypes\DropdownAnswer',
-            'EmailAnswer' => 'App\Models\AnswerTypes\EmailAnswer',
-            'HourAnswer' => 'App\Models\AnswerTypes\HourAnswer',
-            'LegalAnswer' => 'App\Models\AnswerTypes\LegalAnswer',
-            'LongTextAnswer' => 'App\Models\AnswerTypes\LongTextAnswer',
-            'MultipleChoiceAnswer' => 'App\Models\AnswerTypes\MultipleChoiceAnswer',
-            'NumberAnswer' => 'App\Models\AnswerTypes\NumberAnswer',
-            'PictureChoiceAnswer' => 'App\Models\AnswerTypes\PictureChoiceAnswer',
-            'RatingAnswer' => 'App\Models\AnswerTypes\RatingAnswer',
-            'ScaleAnswer' => 'App\Models\AnswerTypes\ScaleAnswer',
-            'ShortTextAnswer' => 'App\Models\AnswerTypes\ShortTextAnswer',
-            'WebAnswer' => 'App\Models\AnswerTypes\WebAnswer',
-            'YesNoAnswer' => 'App\Models\AnswerTypes\YesNoAnswer',
+            'YesNo' => 'App\Models\QuestionTypes\YesNo'
         ]);
     }
 

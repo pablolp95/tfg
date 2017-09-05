@@ -151,28 +151,6 @@ $(document).ready(function(){
                 $('html').html(m.responseText);
             }
         });
-        /*
-        var question_id = '#question-'+$('#edit-question').val();
-        var form = $('#question-form')[0]; // You need to use standard javascript object here
-        var formData = new FormData(form);
-
-        $.ajax({
-            url: $('#question-form').prop('action'),
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            type: 'POST',
-            success: function(model_json) {
-                $model = JSON.parse(model_json);
-                $(question_id+' .question-label').html($model.text);
-                $('#edit-question-modal').modal('hide');
-            },
-            error: function(message) {
-                console.log(message);
-            }
-        });
-        * */
     });
 
     //Quita de la lista la pregunta si se cancela la operación de añadir una nueva
@@ -361,6 +339,49 @@ $(document).ready(function(){
     //Se borra de la lista la opción seleccionada
     $(document).on('click', '.delete-option', function () {
         $(this).closest('li').remove();
+    });
+
+    /* ---------------------------------------------------
+                    4.GRID QUESTION TYPE
+    ----------------------------------------------------- */
+    //Se añade a la lista una nueva fila
+    $(document).on('click', '.add-row-button', function () {
+        var id = $('#rows').find('li.option-item').length;
+        var count = id + 1;
+
+        var option = '<li class="option-item">' +
+            '   <input name="rows_id[]" value="" type="hidden">' +
+            '   <input name="rows_value[]" class="question-option" type="text" value="Fila '+ count +'">' +
+            '   <span class="glyphicon glyphicon-move move-option" aria-hidden="true"></span>\n' +
+            '   <span class="glyphicon glyphicon-remove delete-option" aria-hidden="true"></span>' +
+            '</li>';
+        $(option).insertBefore($('#add-row-item'));
+        sortable('#rows',{
+            items: '.option-item',
+            handle: '.move-option',
+            forcePlaceholderSize: true
+        });
+
+    });
+
+    //Se añade a la lista una nueva columna
+    $(document).on('click', '.add-column-button', function () {
+        var id = $('#columns').find('li.option-item').length;
+        var count = id + 1;
+
+        var option = '<li class="option-item">' +
+            '   <input name="columns_id[]" value="" type="hidden">' +
+            '   <input name="columns_value[]" class="question-option" type="text" value="Columna '+ count +'">' +
+            '   <span class="glyphicon glyphicon-move move-option" aria-hidden="true"></span>\n' +
+            '   <span class="glyphicon glyphicon-remove delete-option" aria-hidden="true"></span>' +
+            '</li>';
+        $(option).insertBefore($('#add-column-item'));
+        sortable('#columns',{
+            items: '.option-item',
+            handle: '.move-option',
+            forcePlaceholderSize: true
+        });
+
     });
 
 });

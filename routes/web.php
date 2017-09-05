@@ -42,8 +42,8 @@ Route::put('questions/update/order', ['as' => 'questions.update.order', 'uses' =
 Route::delete('questions/{id}', ['as' => 'questions.destroy', 'uses' => 'QuestionController@destroy']);
 
 
-Route::get('view/form/{id}', ['as' => 'form.view', 'uses' => 'PublicFormController@show']);
-Route::post('submit/form/', ['as' => 'form.submit', 'uses' => 'PublicFormController@store']);
+Route::get('view/form/{id}', ['as' => 'form.view', 'uses' => 'ResponseController@show']);
+Route::post('submit/form/', ['as' => 'form.submit', 'uses' => 'ResponseController@store']);
 
 /*Route::resource('forms', 'FormController', ['only' => [
     'store', 'show', 'update', 'destroy'

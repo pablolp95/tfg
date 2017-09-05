@@ -19,3 +19,7 @@ ul:not(.browser-default) > li {
     list-style-type: none;
     display: inline-block;
 }
+
+.row-value {
+    font-weight: bold;
+}

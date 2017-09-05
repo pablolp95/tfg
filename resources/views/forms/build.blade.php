@@ -70,7 +70,7 @@
                         <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                         Desplegable
                     </li>
-                    <li class="list-group-item question-type" data-type="MultipleChoiceGrid" data-label="Elección múltiple" data-icon="check"  draggable="true">
+                    <li class="list-group-item question-type" data-type="Grid" data-label="Elección múltiple" data-icon="th"  draggable="true">
                         <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
                         Cuadricula
                     </li>

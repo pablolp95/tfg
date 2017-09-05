@@ -7,7 +7,7 @@ use App\Response;
 use App\Form;
 use Illuminate\Http\Request;
 
-class PublicFormController extends Controller
+class ResponseController extends Controller
 {
     /**
      * Store a newly created resource in storage.

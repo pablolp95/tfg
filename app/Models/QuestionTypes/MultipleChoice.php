@@ -6,7 +6,7 @@ use App\Events\SaveQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\QuestionOption;
-use App\Events\DeleteQuestion;
+use App\Events\DeleteOptionsQuestion;
 use Illuminate\Support\Facades\Log;
 
 class MultipleChoice extends Model
@@ -18,7 +18,7 @@ class MultipleChoice extends Model
      * @var array
      */
     protected $events = [
-        'deleted' => DeleteQuestion::class,
+        'deleted' => DeleteOptionsQuestion::class,
         'saved' => SaveQuestion::class,
     ];
 

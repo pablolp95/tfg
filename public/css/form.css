@@ -259,11 +259,13 @@
 /* ---------------------------------------------------
              4.QUESTION OPTIONS STYLE
 ----------------------------------------------------- */
-.option-item, #add-option-item {
+.option-item, #add-option-item, #add-row-item, #add-column-item {
     position: relative;
 }
 
-#add-option-item .add-option-button {
+#add-option-item .add-option-button,
+#add-row-item .add-row-button,
+#add-column-item .add-column-button {
     padding: 5px;
     margin-bottom: 5px;
     border: none;
@@ -319,7 +321,7 @@ select#shape {
 }
 
 /* ---------------------------------------------------
-              5.QUESTION FILE STYLE
+              6.QUESTION FILE STYLE
 ----------------------------------------------------- */
 .file-nav {
     list-style: none;
@@ -358,3 +360,4 @@ li.active > a{
     display: block;
     text-decoration: none;
 }
+

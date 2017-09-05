@@ -11,7 +11,7 @@
         <div class="input-field">
             <select id="form_answer-{{ $question->id }}" name="form_answer[{{ $question->id }}]">
                 <option value="" disabled selected>Elige una opción</option>
-                @foreach($question->typable->options as $option)
+                @foreach($question->typable->options->sortBy('position') as $option)
                     <option value="{{  $option->option_value }}">{{ $option->option_value }}</option>
                 @endforeach
             </select>
