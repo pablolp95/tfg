@@ -30,4 +30,12 @@ class Answer extends Model
         return $this->belongsTo('App\Question');
     }
 
+    /**
+     * Get the row for the answer.
+     */
+    public function row()
+    {
+        return $this->hasOne('App\AnswerRow');
+    }
+
 }

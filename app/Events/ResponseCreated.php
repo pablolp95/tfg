@@ -11,20 +11,20 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Database\Eloquent\Model;
 
-class SaveQuestion
+class ResponseCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $question;
+    public $response;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Model $question)
+    public function __construct(Model $response)
     {
-        $this->question = $question;
+        $this->response = $response;
     }
 
     /**

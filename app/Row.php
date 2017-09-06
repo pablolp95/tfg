@@ -13,4 +13,12 @@ class Row extends Model
     {
         return $this->belongsTo('App\Models\QuestionTypes\Grid');
     }
+
+    /**
+     * Get the row for the answer.
+     */
+    public function answers()
+    {
+        return $this->hasMany('App\AnswerRow');
+    }
 }

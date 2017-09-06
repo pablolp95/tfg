@@ -33,7 +33,7 @@
                                 </td>
                             @else
                                 <td>
-                                    <input type="radio" id="form_answer_{{ $row->id }}_{{$column->id}}" name="form_answer[{{ $question->id }}][{{$row->id}}]" value="{{$column->option_value}}"/>
+                                    <input type="radio" id="form_answer_{{ $row->id }}_{{$column->id}}" name="form_answer[{{ $question->id }}][{{$row->id}}]" value="{{$column->value}}"/>
                                     <label for="form_answer_{{ $row->id }}_{{$column->id}}"></label>
                                 </td>
                             @endif

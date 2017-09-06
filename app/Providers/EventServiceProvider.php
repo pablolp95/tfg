@@ -28,6 +28,9 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\DeleteColumns',
             'App\Listeners\DeleteFile',
         ],
+        'App\Events\ResponseCreated' => [
+            'App\Listeners\FillResponse',
+        ],
     ];
 
     /**

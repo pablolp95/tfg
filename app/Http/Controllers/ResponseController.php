@@ -6,6 +6,7 @@ use App\Answer;
 use App\Response;
 use App\Form;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ResponseController extends Controller
 {
@@ -20,33 +21,7 @@ class ResponseController extends Controller
         $response = new Response();
         $response->form_id = $request->input('form_id');
         $response->save();
-
-        $answers = $request->input('form_answer');
-        foreach ($answers as $question_id => $value) {
-            if (is_array($value)) {
-                foreach ($value as $answer_value) {
-                    if(isset($answer_value)){
-                        $answer = new Answer();
-                        $answer->response_id = $response->id;
-                        $answer->question_id = $question_id;
-                        $answer->value = $answer_value;
-
-                        $response->answers()->save($answer);
-                    }
-                }
-            }
-            else {
-                if (isset($value)) {
-                    $answer = new Answer();
-                    $answer->response_id = $response->id;
-                    $answer->question_id = $question_id;
-                    $answer->value = $value;
-
-                    $response->answers()->save($answer);
-
-                }
-            }
-        }
+        Log::info($request);
 
         return view('publicForms.submited');
     }

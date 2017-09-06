@@ -59,7 +59,7 @@ class QuestionController extends Controller
      * @param bool $save
      * @return mixed
      */
-    public function silentSave(&$question, &$type , Request $request, $save = true)
+    public function silentSave(&$question, &$type, Request $request, $save = true)
     {
         $question->text = $request->input('text');
         $question->description = $request->input('description');

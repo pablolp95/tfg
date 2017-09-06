@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnswersTable extends Migration
+class CreateAnswerRowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,26 +13,23 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers', function (Blueprint $table) {
+        Schema::create('answer_rows', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->integer('response_id')->index()->unsigned();
-            $table->integer('question_id')->index()->unsigned();
-            $table->text('value');
-
+            $table->integer('answer_id')->index()->unsigned();
+            $table->integer('row_id')->index()->unsigned();
         });
 
-        Schema::table('answers', function(Blueprint $table) {
-            $table->foreign('response_id')
+        Schema::table('answer_rows', function(Blueprint $table) {
+            $table->foreign('answer_id')
                 ->references('id')
-                ->on('responses')
-                ->onUpdate('cascade')
+                ->on('answers')
                 ->onDelete('cascade');
 
-            $table->foreign('question_id')
+            $table->foreign('row_id')
                 ->references('id')
-                ->on('questions')
+                ->on('rows')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
@@ -45,6 +42,6 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answers');
+        Schema::dropIfExists('answer_rows');
     }
 }
