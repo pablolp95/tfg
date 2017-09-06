@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Form;
+use App\Response;
 
 class FormController extends Controller
 {
@@ -131,5 +131,22 @@ class FormController extends Controller
         if(Auth::id() == $form->Workspace->user_id)
             return view('forms.analyze', compact('form'));
         abort(403, 'Unauthorized action.');
+    }
+
+    public function getGlobalStats() {
+        return view('forms.analyze.global_stats')->render();
+    }
+
+    public function getSingleStats($id) {
+        $form = Form::findOrFail($id);
+
+        return view('forms.analyze.single_stats', ['form' => $form])->render();
+
+    }
+
+    public function getResponseStats($id){
+        $form = Form::findOrFail($id);
+        $responses = Response::where('form_id', $id)->orderBy('created_at', 'asc')->simplePaginate(1);
+        return view('forms.analyze.response_stats', ['form' => $form,'responses' => $responses])->render();
     }
 }

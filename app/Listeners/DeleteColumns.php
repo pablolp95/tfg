@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\DeleteOptionsQuestion;
+use App\Events\DeleteGridQuestion;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -24,7 +24,7 @@ class DeleteColumns
      * @param  DeleteOptionsQuestion  $event
      * @return void
      */
-    public function handle(DeleteOptionsQuestion $event)
+    public function handle(DeleteGridQuestion $event)
     {
         if(count($event->question->columns)){
             foreach ($event->question->columns as $column) {

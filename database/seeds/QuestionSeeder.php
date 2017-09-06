@@ -198,6 +198,53 @@ class QuestionSeeder extends Seeder
         $question->position = '12';
         $type->question()->save($question);
 
+        $type = new \App\Models\QuestionTypes\Grid();
+        $type->required = '0';
+        $type->multiple = '0';
+        $type->save();
+        $row = new \App\Row();
+        $row->value = 'Fila 1';
+        $row->position = '0';
+        $type->rows()->save($row);
+        $column = new \App\Column();
+        $column->value = 'Columna 1';
+        $column->position = '0';
+        $type->columns()->save($column);
+        $column = new \App\Column();
+        $column->value = 'Columna 2';
+        $column->position = '1';
+        $type->columns()->save($column);
+        $question = new App\Question();
+        $question->text = 'Cuadricula selección única';
+        $question->icon = 'th';
+        $question->form_id = '1';
+        $question->last_update_user_id = '3';
+        $question->position = '13';
+        $type->question()->save($question);
+
+        $type = new \App\Models\QuestionTypes\Grid();
+        $type->required = '0';
+        $type->multiple = '1';
+        $type->save();
+        $row = new \App\Row();
+        $row->value = 'Fila 1';
+        $row->position = '0';
+        $type->rows()->save($row);
+        $column = new \App\Column();
+        $column->value = 'Columna 1';
+        $column->position = '0';
+        $type->columns()->save($column);
+        $column = new \App\Column();
+        $column->value = 'Columna 2';
+        $column->position = '1';
+        $type->columns()->save($column);
+        $question = new App\Question();
+        $question->text = 'Cuadricula selección multiple';
+        $question->icon = 'th';
+        $question->form_id = '1';
+        $question->last_update_user_id = '3';
+        $question->position = '14';
+        $type->question()->save($question);
 
     }
 }

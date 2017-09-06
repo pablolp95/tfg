@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Psy\Util\Json;
 
 class QuestionController extends Controller
 {

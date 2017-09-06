@@ -11,7 +11,7 @@
                 {!! Form::open(["method" => "post", "route" => "form.submit"]) !!}
                 <input name="form_id" value="{{$form->id}}" type="hidden">
 
-                @foreach($form->questions as $question)
+                @foreach($form->questions->sortBy('position') as $question)
                     @include('publicForms.questions.'.$question->typable_type)
                 @endforeach
 

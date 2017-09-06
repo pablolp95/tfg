@@ -6,6 +6,7 @@
 
 @section('css')
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/public_form.css') }}" rel="stylesheet">
 @endsection
 
 @section('subnav')
@@ -47,17 +48,25 @@
 @section('content')
     <div id="container-aux" class="container-fluid container-full-height">
         <div class="row row-eq-height row-full-height">
-            <div class="col-xs-9 form-wrapper"></div>
-            <div class="col-xs-3 members-sidebar"></div>
+            <div class="col-xs-12 analyze-wrapper"></div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row row-eq-height">
-            <div class="col-xs-9 form-wrapper">
-
-            </div>
-            <div class="col-xs-3 members-sidebar">
-
+            <div class="col-xs-12 analyze-wrapper">
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-xs-8 col-xs-offset-2 analyze-control">
+                        <h3>{{$form->responses->count()}} respuestas</h3>
+                        <div class="btn-group" role="group">
+                            <button id="summary" type="button" class="selected btn btn-default button-control-analyze">RESUMEN</button>
+                            <button id="single" type="button" class="btn btn-default button-control-analyze">INDIVIDUAL</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="analyze-content" class="col-xs-8 col-xs-offset-2" style="margin-bottom: 20px">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -66,4 +75,5 @@
 @section('script')
     <script>var form_id = {{$form->id}}</script>
     <script src="{{ asset('js/form.js') }}"></script>
+    <script src="{{ asset('js/analyze.js') }}"></script>
 @endsection

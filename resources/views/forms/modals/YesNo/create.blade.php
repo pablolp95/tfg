@@ -10,7 +10,7 @@
             <input id="form_id" type="hidden" name="form_id" value="">
             <input id="icon" type="hidden" name="icon" value="">
             <input id="question-position" type="hidden" name="position" value="">
-            @include('forms.modals.yesNo._model')
+            @include('forms.modals.YesNo._model')
             {!! Form::close() !!}
         </div>
         <div class="modal-footer">

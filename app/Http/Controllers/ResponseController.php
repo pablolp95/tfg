@@ -21,7 +21,6 @@ class ResponseController extends Controller
         $response = new Response();
         $response->form_id = $request->input('form_id');
         $response->save();
-        Log::info($request);
 
         return view('publicForms.submited');
     }

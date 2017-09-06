@@ -361,3 +361,50 @@ li.active > a{
     text-decoration: none;
 }
 
+/* ---------------------------------------------------
+              6.QUESTION FILE STYLE
+----------------------------------------------------- */
+.analyze-wrapper {
+    background-color: #F1F1F1;
+    position: relative;
+}
+
+.analyze-control {
+    position: relative;
+    height: 100px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+}
+
+#analyze-content {
+    padding-top: 15px;
+    position: relative;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+}
+
+#single-analyze, #global-analyze {
+    position: relative;
+}
+
+#single-analyze-control {
+    margin-bottom: 20px;
+}
+
+.button-control-analyze,
+.button-control-analyze:hover,
+.button-control-analyze:focus,
+.button-control-analyze:active {
+    border-radius: 4px;
+    border-color: #0083E6;
+    background-color: #FFFFFF;
+}
+
+.button-control-analyze.selected {
+    color: #FFFFFF;
+    background-color: #0083E6;
+}

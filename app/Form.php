@@ -21,4 +21,12 @@ class Form extends Model
     {
         return $this->hasMany('App\Question');
     }
+
+    /**
+     * Get the workspace that owns the form.
+     */
+    public function responses()
+    {
+        return $this->hasMany('App\Response');
+    }
 }

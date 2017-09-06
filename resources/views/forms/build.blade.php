@@ -62,10 +62,6 @@
                         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                         Elección múltiple
                     </li>
-                    <li class="list-group-item question-type" data-type="MultipleImages" data-label="Múltiples imágenes" data-icon="list-alt" draggable="true">
-                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                        Múltiples imágenes
-                    </li>
                     <li class="list-group-item question-type" data-type="Dropdown" data-label="Desplegable" data-icon="triangle-bottom" draggable="true">
                         <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                         Desplegable
@@ -164,6 +160,7 @@
 
 @section('script')
     <script>var form_id = "{{$form->id}}"</script>
-    <script src="{{ asset('js/form.js') }}"></script>
     <script src="{{ asset('js/html.sortable.min.js') }}"></script>
+    <script src="{{ asset('js/form.js') }}"></script>
+    <script src="{{ asset('js/build.js') }}"></script>
 @endsection
