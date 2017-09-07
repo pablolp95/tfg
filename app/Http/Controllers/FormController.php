@@ -136,26 +136,83 @@ class FormController extends Controller
 
     public function getGlobalStats($id) {
         $form = Form::findOrFail($id);
-
+        $results = null;
         foreach ($form->questions as $question) {
-            if($question->typable_type == 'Grid') {
-                $results[$question->id] = array('labels' => array(), 'columns' => array());
-                $grid = $question->typable;
-                foreach ($grid->columns as $column) {
-                    $results[$question->id]['columns'][$column->value] = array();
-                    $count = 0;
-                    foreach ($grid->rows as $row){
-                        if(!in_array($row->value, $results[$question->id]['labels'])){
-                            array_push($results[$question->id]['labels'], $row->value);
+            if($question->answers->isNotEmpty()){
+                switch ($question->typable_type) {
+                    case 'Grid':
+                        $results[$question->id] = array('labels' => array(), 'columns' => array());
+                        $grid = $question->typable;
+                        foreach ($grid->columns as $column) {
+                            $results[$question->id]['columns'][$column->value] = array();
+                            $count = 0;
+                            foreach ($grid->rows as $row){
+                                if(!in_array($row->value, $results[$question->id]['labels'])){
+                                    array_push($results[$question->id]['labels'], $row->value);
+                                }
+                                $count += $question->answers->filter(function ($model) use ($column, $row) {
+                                    return $model->value == $column->value && $model->row->row_id == $row->id;
+                                })->count();
+                                array_push($results[$question->id]['columns'][$column->value], $count);
+                                $count = 0;
+                            }
                         }
-                        $count += $question->answers->filter(function ($model) use ($column, $row) {
-                            return $model->value == $column->value && $model->row->row_id == $row->id;
-                        })->count();
-                        array_push($results[$question->id]['columns'][$column->value], $count);
+                        break;
+                    case 'Dropdown':
+                        $results[$question->id] = array('labels' => array(), 'count_options' => array());
                         $count = 0;
-                    }
+                        foreach ($question->typable->options as $option){
+                            array_push($results[$question->id]['labels'], $option->option_value);
+                            $count += $question->answers->filter(function ($model) use ($option) {
+                                return $model->value == $option->option_value;
+                            })->count();
+                            array_push($results[$question->id]['count_options'], $count);
+                            $count = 0;
+                        }
+                        break;
+                    case 'Scale':
+                        $results[$question->id] = array('labels' => array(), 'values' => array());
+                        $count = 0;
+                        for ($i = $question->typable->range_min; $i <= $question->typable->range_max; ++$i){
+                            array_push($results[$question->id]['labels'], $i);
+                            $count += $question->answers->filter(function ($model) use ($i) {
+                                return $model->value == $i;
+                            })->count();
+                            array_push($results[$question->id]['values'], $count);
+                            $count = 0;
+                        }
+                        break;
+                    case 'MultipleChoice':
+                        $results[$question->id] = array('labels' => array(), 'count_options' => array());
+                        $count = 0;
+                        foreach ($question->typable->options as $option){
+                            array_push($results[$question->id]['labels'], $option->option_value);
+                            $count += $question->answers->filter(function ($model) use ($option) {
+                                return $model->value == $option->option_value;
+                            })->count();
+                            array_push($results[$question->id]['count_options'], $count);
+                            $count = 0;
+                        }
+                        break;
+                    case 'Number':
+                        $results[$question->id] = array('labels' => array(), 'counts' => array());
+                        $count = 0;
+                        $answers = $question->answers->sortBy('value');
+                        while($answers->isNotEmpty()){
+                            $answer = $answers->first();
+                            $results[$question->id]['counts'][$answer->value] = array();
+                            array_push($results[$question->id]['labels'], $answer->value);
+                            $count += $answers->filter(function ($model) use ($answer) {
+                                return $model->value == $answer->value;
+                            })->count();
+                            $answers = $answers->reject(function ($model) use ($answer){
+                                return $model->value == $answer->value;
+                            });
+                            array_push($results[$question->id]['counts'][$answer->value], $count);
+                            $count = 0;
+                        }
+                        break;
                 }
-
             }
         }
 
