@@ -6,6 +6,7 @@
 
 @section('css')
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    {!! Charts::assets() !!}
 @endsection
 
 @section('subnav')

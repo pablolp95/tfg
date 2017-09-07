@@ -134,8 +134,34 @@ class FormController extends Controller
         abort(403, 'Unauthorized action.');
     }
 
-    public function getGlobalStats() {
-        return view('forms.analyze.global_stats')->render();
+    public function getGlobalStats($id) {
+        $form = Form::findOrFail($id);
+
+        foreach ($form->questions as $question) {
+            if($question->typable_type == 'Grid') {
+                $results[$question->id] = array('labels' => array(), 'columns' => array());
+                $grid = $question->typable;
+                foreach ($grid->columns as $column) {
+                    $results[$question->id]['columns'][$column->value] = array();
+                    $count = 0;
+                    foreach ($grid->rows as $row){
+                        if(!in_array($row->value, $results[$question->id]['labels'])){
+                            array_push($results[$question->id]['labels'], $row->value);
+                        }
+                        $count += $question->answers->filter(function ($model) use ($column, $row) {
+                            return $model->value == $column->value && $model->row->row_id == $row->id;
+                        })->count();
+                        array_push($results[$question->id]['columns'][$column->value], $count);
+                        $count = 0;
+                    }
+                }
+
+            }
+        }
+
+        Log::info($results);
+
+        return view('forms.analyze.global_stats', ['results' => $results, 'form' => $form])->render();
     }
 
     public function getSingleStats($id) {

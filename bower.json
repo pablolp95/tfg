@@ -25,7 +25,8 @@
   "dependencies": {
     "bootstrap": "3.3.7",
     "materialize": "0.100.2",
-    "components-font-awesome": "*"
+    "components-font-awesome": "*",
+    "chart.js":"*"
   },
   "devDependencies": {
   }
