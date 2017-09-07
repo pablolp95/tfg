@@ -6,7 +6,6 @@
 
 @section('css')
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/public_form.css') }}" rel="stylesheet">
 @endsection
 
 @section('subnav')
@@ -38,7 +37,7 @@
                     </ul>
                 </div>
                 <div id="show-form">
-                    <a href="{{ url('/view/form/'.$form->id) }}">Ver formulario</a>
+                    <a href="{{ url('/view/form/'.$form->id) }}" target="_blank">Ver formulario</a>
                 </div>
             </div>
         </div>

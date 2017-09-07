@@ -37,7 +37,7 @@
                     </ul>
                 </div>
                 <div id="show-form">
-                    <a href="{{ url('/view/form/'.$form->id) }}">Ver formulario</a>
+                    <a href="{{ url('/view/form/'.$form->id) }} target="_blank"">Ver formulario</a>
                 </div>
             </div>
         </div>

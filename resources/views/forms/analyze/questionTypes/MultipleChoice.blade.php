@@ -1,3 +1,6 @@
+@php
+    $checked = false
+@endphp
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="question-response">
@@ -9,19 +12,28 @@
             @endif
         </div>
         <div class="question-answer">
-            @if(!$question->typable->multiple)
-                @foreach($question->typable->options->sortBy('position') as $option)
-                    <label class="radio-inline">
-                        <input type="radio" name="example" disabled @if($answer->value == $option->option_value) checked @endif> {{$option->option_value}}
-                    </label>
-                @endforeach
-            @else
-                @foreach($question->typable->options->sortBy('position') as $option)
+            @foreach($question->typable->options->sortBy('position') as $option)
+                @php
+                    $checked = false;
+                    if(!is_null($answer)){
+                        $item = $answer->filter(function ($model) use ($option) {
+                            return $model->value == $option->option_value;
+                        })->first();
+                        if(!is_null($item)) {
+                            $checked = true;
+                        }
+                    }
+                @endphp
+                @if($question->typable->multiple)
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="example" disabled @if($answer->value == $option->option_value) checked @endif> {{$option->option_value}}
+                        <input type="checkbox" disabled @if($checked) checked @endif> {{$option->option_value}}
                     </label>
-                @endforeach
-            @endif
+                @else
+                    <label class="radio-inline">
+                        <input type="radio" disabled @if($checked) checked @endif> {{$option->option_value}}
+                    </label>
+                @endif
+            @endforeach
         </div>
     </div>
 </div>

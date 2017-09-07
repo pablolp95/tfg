@@ -362,7 +362,7 @@ li.active > a{
 }
 
 /* ---------------------------------------------------
-              6.QUESTION FILE STYLE
+              7.ANALYZE
 ----------------------------------------------------- */
 .analyze-wrapper {
     background-color: #F1F1F1;
@@ -407,4 +407,15 @@ li.active > a{
 .button-control-analyze.selected {
     color: #FFFFFF;
     background-color: #0083E6;
+}
+
+#delete-response {
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    background: #0083E6;
+    padding: 6px;
+    color: white;
+    border-radius: 4px;
+    border: none;
 }

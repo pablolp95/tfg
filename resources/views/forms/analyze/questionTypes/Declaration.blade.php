@@ -1,5 +1,7 @@
-<div class="card">
-    <div class="card-content black-text">
-        <span class="card-title">{{$question->text}}</span>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="question-response">
+            <h3>{{$question->text}}</h3>
+        </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Form;
 use App\Response;
+use Illuminate\Support\Facades\Log;
 
 class FormController extends Controller
 {
@@ -147,6 +148,18 @@ class FormController extends Controller
     public function getResponseStats($id){
         $form = Form::findOrFail($id);
         $responses = Response::where('form_id', $id)->orderBy('created_at', 'asc')->simplePaginate(1);
-        return view('forms.analyze.response_stats', ['form' => $form,'responses' => $responses])->render();
+        $answers = [];
+        foreach ($responses as $response) {
+            foreach ($form->questions as $question) {
+                if($response->answers->contains('question_id', $question->id)){
+                    $answer = $response->answers->where('question_id', $question->id);
+                    $answers[$question->id] = $answer;
+                }
+                else {
+                    $answers[$question->id] = NULL;
+                }
+            }
+        }
+        return view('forms.analyze.response_stats', ['form' => $form,'answers' => $answers])->render();
     }
 }

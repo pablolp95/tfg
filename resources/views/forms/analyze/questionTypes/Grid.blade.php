@@ -27,13 +27,24 @@
                     <tr>
                         <td>{{  $row->value }}</td>
                         @foreach($question->typable->columns->sortBy('position') as $column)
+                            @php
+                            $checked = false;
+                            if(!is_null($answer)){
+                                $item = $answer->filter(function ($model) use ($column, $row) {
+                                    return $model->value == $column->value && $model->row->row_id == $row->id;
+                                })->first();
+                                if(!is_null($item)) {
+                                    $checked = true;
+                                }
+                            }
+                            @endphp
                             @if($multiple)
                                 <td>
-                                    <input type="checkbox" disabled name="example"/>
+                                    <input type="checkbox" disabled @if($checked) checked @endif/>
                                 </td>
                             @else
                                 <td>
-                                    <input type="radio" disabled name="example"/>
+                                    <input type="radio" disabled @if($checked) checked @endif/>
                                 </td>
                             @endif
                         @endforeach

@@ -206,6 +206,10 @@ class QuestionSeeder extends Seeder
         $row->value = 'Fila 1';
         $row->position = '0';
         $type->rows()->save($row);
+        $row = new \App\Row();
+        $row->value = 'Fila 2';
+        $row->position = '1';
+        $type->rows()->save($row);
         $column = new \App\Column();
         $column->value = 'Columna 1';
         $column->position = '0';
@@ -229,6 +233,10 @@ class QuestionSeeder extends Seeder
         $row = new \App\Row();
         $row->value = 'Fila 1';
         $row->position = '0';
+        $type->rows()->save($row);
+        $row = new \App\Row();
+        $row->value = 'Fila 2';
+        $row->position = '1';
         $type->rows()->save($row);
         $column = new \App\Column();
         $column->value = 'Columna 1';

@@ -9,7 +9,9 @@
             @endif
         </div>
         <div class="question-answer">
-            <p>{{$answer->value}}</p>
+            @if(!is_null($answer))
+                <p>{{$answer->first()->value}}</p>
+            @endif
         </div>
     </div>
 </div>

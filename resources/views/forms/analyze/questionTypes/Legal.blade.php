@@ -9,10 +9,12 @@
             @endif
         </div>
         <div class="question-answer">
-            @if($answer->value)
-                <span class="glyphicon glyphicon-ok" style="color: #0f9d58" aria-hidden="true"></span><span>Aceptada</span>
-            @else
-                <span class="glyphicon glyphicon-remove" style="color: red" aria-hidden="true"></span><span>Rechazada</span>
+            @if(!is_null($answer))
+                @if($answer->first()->value)
+                    <span class="glyphicon glyphicon-ok" style="color: #0f9d58" aria-hidden="true"></span><span>Aceptada</span>
+                @else
+                    <span class="glyphicon glyphicon-remove" style="color: red" aria-hidden="true"></span><span>Rechazada</span>
+                @endif
             @endif
         </div>
     </div>
