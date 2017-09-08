@@ -17,7 +17,6 @@ class CreateDatesTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('format');
             $table->boolean('required');
         });
     }

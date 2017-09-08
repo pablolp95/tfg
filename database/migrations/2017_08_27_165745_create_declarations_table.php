@@ -16,9 +16,6 @@ class CreateDeclarationsTable extends Migration
         Schema::create('declarations', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-
-            $table->string('button_text')->nullable();
-
         });
     }
 

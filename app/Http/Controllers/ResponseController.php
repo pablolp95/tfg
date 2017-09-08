@@ -22,7 +22,7 @@ class ResponseController extends Controller
         $response->form_id = $request->input('form_id');
         $response->save();
 
-        return view('publicForms.submited');
+        return redirect(route('form.submitted'));
     }
 
     /**
@@ -36,5 +36,15 @@ class ResponseController extends Controller
         $form = Form::findOrFail($id);
 
         return view('publicForms.submit', compact('form'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showSubmitted()
+    {
+        return view('publicForms.submitted', compact('form'));
     }
 }

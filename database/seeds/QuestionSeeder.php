@@ -37,7 +37,6 @@ class QuestionSeeder extends Seeder
         $type->question()->save($question);
 
         $type = new \App\Models\QuestionTypes\Declaration();
-        $type->button_text = 'Continuar';
         $type->save();
         $question = new App\Question();
         $question->text = 'Esto solo acaba de empezar';
@@ -79,7 +78,6 @@ class QuestionSeeder extends Seeder
         $type->question()->save($question);
 
         $type = new \App\Models\QuestionTypes\Date();
-        $type->format = 'DD/MM/YYYY';
         $type->required = '0';
         $type->save();
         $question = new App\Question();
@@ -117,8 +115,6 @@ class QuestionSeeder extends Seeder
         $type->required = '0';
         $type->multiple = '0';
         $type->random = '0';
-        $type->vertical = '0';
-        $type->other = '0';
         $type->save();
         $option = new \App\QuestionOption();
         $option->option_value = 'Opción A';
@@ -140,8 +136,6 @@ class QuestionSeeder extends Seeder
         $type->required = '0';
         $type->multiple = '1';
         $type->random = '0';
-        $type->vertical = '0';
-        $type->other = '0';
         $type->save();
         $option = new \App\QuestionOption();
         $option->option_value = 'Opción A';

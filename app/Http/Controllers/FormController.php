@@ -200,7 +200,6 @@ class FormController extends Controller
                         $answers = $question->answers->sortBy('value');
                         while($answers->isNotEmpty()){
                             $answer = $answers->first();
-                            $results[$question->id]['counts'][$answer->value] = array();
                             array_push($results[$question->id]['labels'], $answer->value);
                             $count += $answers->filter(function ($model) use ($answer) {
                                 return $model->value == $answer->value;
@@ -208,16 +207,14 @@ class FormController extends Controller
                             $answers = $answers->reject(function ($model) use ($answer){
                                 return $model->value == $answer->value;
                             });
-                            array_push($results[$question->id]['counts'][$answer->value], $count);
+                            array_push($results[$question->id]['counts'], $count);
                             $count = 0;
                         }
                         break;
                 }
             }
         }
-
-        Log::info($results);
-
+        //Log::info($results);
         return view('forms.analyze.global_stats', ['results' => $results, 'form' => $form])->render();
     }
 

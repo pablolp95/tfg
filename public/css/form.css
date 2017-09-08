@@ -273,7 +273,7 @@
     width: 100%;
     color: white;
     font-size: 1.2em;
-    background-color: #2ccb2ccc;
+    background-color: #6fd160;
     cursor:pointer;
     display: block;
 }
@@ -299,7 +299,7 @@
     right: 30px;
     top: 5px;
     padding: 5px;
-    color: #0006;
+    color: #8588a3;
     border-radius: 20px;
     font-size: 1.2em;
     cursor: move;
@@ -310,7 +310,7 @@
     right: 10px;
     top: 5px;
     padding: 5px;
-    color: #0006;
+    color: #8588a3;
     border-radius: 20px;
     font-size: 1.2em;
     cursor: pointer;
@@ -418,4 +418,37 @@ li.active > a{
     color: white;
     border-radius: 4px;
     border: none;
+}
+
+/* ---------------------------------------------------
+              7.SHARE
+----------------------------------------------------- */
+.share-wrapper {
+    background-color: #F1F1F1;
+    position: relative;
+    padding-left: 15%;
+    padding-top: 50px;
+}
+
+.share-wrapper.share-form {
+    text-align: left;
+}
+
+.share-form label {
+    display: block;
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+.share-form input {
+    display: block;
+    width: 461px;
+    float: left;
+    font-size: 20px;
+    padding: 10px;
+    margin: 0 14px 10px 0;
+    color: #4A9998;
+    max-width: calc(100% - 150px);
 }

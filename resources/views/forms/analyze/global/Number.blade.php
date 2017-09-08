@@ -3,9 +3,7 @@ $chart = Charts::multi('bar', 'material')
     ->responsive(true);
 
 $chart->labels($result['labels']);
-foreach ($result['counts'] as $value => $count){
-    $chart->dataset($value, $count);
-}
+$chart->dataset('Valor', $result['counts']);
 
 ?>
 <div class="panel panel-default">

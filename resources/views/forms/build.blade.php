@@ -113,8 +113,9 @@
                     @foreach($form->questions->sortBy('position') as $question)
                         <li id="question-{{ $question->id }}" class="question-item" data-id="{{ $question->id }}" data-icon="{{ $question->icon }}" data-type="{{ $question->typable_type }}">
                             <div class="question-label-wrapper">
-                               <span class="glyphicon glyphicon-{{ $question->icon }}" aria-hidden="true"></span>
-                               <span class="question-label">{{ $question->text }}</span>
+                                <span class="glyphicon glyphicon-{{ $question->icon }}" aria-hidden="true"></span>
+                                @if($question->typable->required)<span>*</span>@endif
+                                <span class="question-label">{{ $question->text }}</span>
                             </div>
                             <div class="question-actions">
                                <span class="move-question glyphicon glyphicon-move" aria-hidden="true"></span>

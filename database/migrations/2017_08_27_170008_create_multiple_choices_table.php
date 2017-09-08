@@ -20,8 +20,6 @@ class CreateMultipleChoicesTable extends Migration
             $table->boolean('required');
             $table->boolean('multiple');
             $table->boolean('random');
-            $table->boolean('vertical');
-            $table->boolean('other');
 
         });
     }

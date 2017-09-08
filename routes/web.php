@@ -46,8 +46,5 @@ Route::delete('questions/{id}', ['as' => 'questions.destroy', 'uses' => 'Questio
 
 
 Route::get('view/form/{id}', ['as' => 'form.view', 'uses' => 'ResponseController@show']);
+Route::get('form/submitted', ['as' => 'form.submitted', 'uses' => 'ResponseController@showSubmitted']);
 Route::post('submit/form/', ['as' => 'form.submit', 'uses' => 'ResponseController@store']);
-
-/*Route::resource('forms', 'FormController', ['only' => [
-    'store', 'show', 'update', 'destroy'
-]]);*/

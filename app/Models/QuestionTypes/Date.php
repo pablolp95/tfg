@@ -52,7 +52,6 @@ class Date extends Model
      */
     public function silentSave(Request $request, $save = true)
     {
-        $this->format = $request->input('format');
         $this->required = $request->input('required');
 
         ($save) ? $this->save() : null;

@@ -3,7 +3,10 @@
 ?>
 <div class="card">
     <div class="card-content black-text">
-        <span class="card-title">{{$question->text}}</span>
+        <span class="card-title">
+            @if($question->typable->required)<span>*</span>@endif
+            {{$question->text}}
+        </span>
         @if(!is_null($question->description))
             <div class="description">
                 <p>{{$question->description}}</p>

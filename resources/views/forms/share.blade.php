@@ -37,7 +37,7 @@
                     </ul>
                 </div>
                 <div id="show-form">
-                    <a href="{{ url('/view/form/'.$form->id) }} target="_blank"">Ver formulario</a>
+                    <a href="{{ url('/view/form/'.$form->id) }}" target="_blank">Ver formulario</a>
                 </div>
             </div>
         </div>
@@ -47,17 +47,16 @@
 @section('content')
     <div id="container-aux" class="container-fluid container-full-height">
         <div class="row row-eq-height row-full-height">
-            <div class="col-xs-9 form-wrapper"></div>
-            <div class="col-xs-3 members-sidebar"></div>
+            <div class="col-xs-12 analyze-wrapper"></div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row row-eq-height">
-            <div class="col-xs-9 form-wrapper">
-
-            </div>
-            <div class="col-xs-3 members-sidebar">
-
+            <div class="col-xs-12 share-wrapper">
+                <div class="share-form">
+                    <label>Tu formulario se aloja en esta URL:</label>
+                    <input value="{{ url('/view/form/'.$form->id) }}" readonly="" type="text">
+                </div>
             </div>
         </div>
     </div>

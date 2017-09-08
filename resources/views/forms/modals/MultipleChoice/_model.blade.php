@@ -66,30 +66,6 @@
     </label>
 </div>
 
-<div class="question-field">
-    {!! Form::label("vertical", "Alineación vertical:") !!}
-    <label class="radio-inline">
-        {!! Form::radio('vertical', '1', isset($question) ? $question->typable->vertical : 0); !!}
-        Si
-    </label>
-    <label class="radio-inline">
-        {!! Form::radio('vertical', '0', isset($question) ? !$question->typable->vertical : 1); !!}
-        No
-    </label>
-</div>
-
-<div class="question-field">
-    {!! Form::label("other", "Añadir opción de otros:") !!}
-    <label class="radio-inline">
-        {!! Form::radio('other', '1', isset($question) ? $question->typable->other : 0); !!}
-        Si
-    </label>
-    <label class="radio-inline">
-        {!! Form::radio('other', '0', isset($question) ? !$question->typable->other : 1); !!}
-        No
-    </label>
-</div>
-
 <script>
     sortable('#question-options',{
         items: '.option-item',

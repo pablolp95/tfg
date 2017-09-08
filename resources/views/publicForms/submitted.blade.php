@@ -1,7 +1,7 @@
 @extends('publicForms.layout')
 
 @section('title')
-    TFG PABLO - Envío completado
+    Envío completado | TFG Pablo
 @endsection
 
 @section('content')
@@ -12,5 +12,4 @@
             </div>
         </div>
     </div>
-
 @endsection
