@@ -80,7 +80,7 @@
                         <h4 class="modal-title">Añadir un nuevo formulario</h4>
                     </div>
                     <div class="modal-body">
-                        <input id="name" class="form-control" name="name" placeholder="Introduzca el nombre..." autofocus="" type="text">
+                        <input id="name" class="form-control" name="name" placeholder="Introduzca el nombre..." autofocus="" type="text" required>
                         <input id="workspace_id" name="workspace_id" value="{{$workspace->id}}" type="hidden">
                     </div>
                     <div class="modal-footer">

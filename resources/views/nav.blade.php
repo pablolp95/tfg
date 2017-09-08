@@ -88,7 +88,7 @@
                 <h4 class="modal-title">Añadir un nuevo espacio de trabajo</h4>
             </div>
             <div class="modal-body">
-                <input id="name" class="form-control" name="name" placeholder="Introduzca el nombre..." autofocus="" type="text">
+                <input id="name" class="form-control" name="name" placeholder="Introduzca el nombre..." autofocus="" type="text" required>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
