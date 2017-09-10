@@ -18,6 +18,7 @@ class CreateDropdownsTable extends Migration
             $table->timestamps();
 
             $table->boolean('required');
+            $table->boolean('alphabetically');
         });
     }
 

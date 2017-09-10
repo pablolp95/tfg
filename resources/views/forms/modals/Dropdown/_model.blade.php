@@ -41,6 +41,18 @@
         No
     </label>
 </div>
+
+<div class="question-field">
+    {!! Form::label("alphabetically", "Orden alfabético:") !!}
+    <label class="radio-inline">
+        {!! Form::radio('alphabetically', '1', isset($question) ? $question->typable->alphabetically : 0); !!}
+        Si
+    </label>
+    <label class="radio-inline">
+        {!! Form::radio('alphabetically', '0', isset($question) ? !$question->typable->alphabetically : 1); !!}
+        No
+    </label>
+</div>
 <script>
     sortable('#question-options',{
         items: '.option-item',

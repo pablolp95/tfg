@@ -14,7 +14,15 @@
         <div class="input-field">
             <select id="form_answer-{{ $question->id }}" name="form_answer[{{ $question->id }}]" @if($question->typable->required) required @endif>
                 <option value="" disabled selected>Elige una opción</option>
-                @foreach($question->typable->options->sortBy('position') as $option)
+                @php
+                    if($question->typable->alphabetically){
+                        $options = $question->typable->options->sortBy('option_value');
+                    }
+                    else {
+                        $options = $question->typable->options->sortBy('position');
+                    }
+                @endphp
+                @foreach($options as $option)
                     <option value="{{  $option->option_value }}">{{ $option->option_value }}</option>
                 @endforeach
             </select>

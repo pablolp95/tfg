@@ -3,13 +3,13 @@
 namespace App\Models\QuestionTypes;
 
 use App\Events\SaveQuestion;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\QuestionType;
 use Illuminate\Http\Request;
 use App\QuestionOption;
 use App\Events\DeleteOptionsQuestion;
 use Illuminate\Support\Facades\Log;
 
-class MultipleChoice extends Model
+class MultipleChoice extends QuestionType
 {
 
     /**
@@ -28,30 +28,6 @@ class MultipleChoice extends Model
     public function options()
     {
         return $this->morphMany('App\QuestionOption', 'typable');
-    }
-
-    /**
-     * Get the question model.
-     */
-    public function question()
-    {
-        return $this->morphOne('App\Question', 'typable');
-    }
-
-    /**
-     * Get the image model.
-     */
-    public function image()
-    {
-        return $this->morphOne('App\Image', 'question');
-    }
-
-    /**
-     * Get the video model.
-     */
-    public function video()
-    {
-        return $this->morphOne('App\Video', 'question');
     }
 
     /**

@@ -93,20 +93,6 @@ class FormController extends Controller
     }
 
     /**
-     * Display the design view of the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function getDesign($id)
-    {
-        $form = Form::findOrFail($id);
-        if(Auth::id() == $form->Workspace->user_id)
-            return view('forms.design', compact('form'));
-        abort(403, 'Unauthorized action.');
-    }
-
-    /**
      * Display the share view of the specified resource.
      *
      * @param  int  $id

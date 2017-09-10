@@ -48,6 +48,7 @@ class QuestionSeeder extends Seeder
 
         $type = new \App\Models\QuestionTypes\Dropdown();
         $type->required = '0';
+        $type->alphabetically = '1';
         $type->save();
         $option = new \App\QuestionOption();
         $option->option_value = 'España';

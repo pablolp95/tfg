@@ -6,10 +6,10 @@ use App\Row;
 use App\Column;
 use App\Events\DeleteGridQuestion;
 use App\Events\SaveQuestion;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\QuestionType;
 use Illuminate\Http\Request;
 
-class Grid extends Model
+class Grid extends QuestionType
 {
     /**
      * The event map for the model.
@@ -20,14 +20,6 @@ class Grid extends Model
         'deleted' => DeleteGridQuestion::class,
         'saved' => SaveQuestion::class,
     ];
-
-    /**
-     * Get the question model.
-     */
-    public function question()
-    {
-        return $this->morphOne('App\Question', 'typable');
-    }
 
     /**
      * Get the rows.
@@ -43,22 +35,6 @@ class Grid extends Model
     public function columns()
     {
         return $this->hasMany('App\Column');
-    }
-
-    /**
-     * Get the image model.
-     */
-    public function image()
-    {
-        return $this->morphOne('App\Image', 'question');
-    }
-
-    /**
-     * Get the video model.
-     */
-    public function video()
-    {
-        return $this->morphOne('App\Video', 'question');
     }
 
     /**

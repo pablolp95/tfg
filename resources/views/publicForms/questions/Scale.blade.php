@@ -14,10 +14,8 @@
         <ul>
             @for ($i = $question->typable->range_min; $i <= $question->typable->range_max; ++$i)
                 <li class="optiom-item">
-                    <p>
-                        <input type="radio" id="form_answer_{{ $question->id }}_{{$i}}" name="form_answer[{{ $question->id }}]" value="{{$i}}"/>
-                        <label for="form_answer_{{ $question->id }}_{{$i}}">{{$i}}</label>
-                    </p>
+                    <input type="radio" id="form_answer_{{ $question->id }}_{{$i}}" name="form_answer[{{ $question->id }}]" value="{{$i}}"/>
+                    <label for="form_answer_{{ $question->id }}_{{$i}}">{{$i}}</label>
                 </li>
             @endfor
         </ul>

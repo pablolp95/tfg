@@ -26,7 +26,6 @@ Route::resource('workspaces', 'WorkspaceController', ['only' => [
 ]]);
 
 Route::get('forms/{id}/build', ['as' => 'forms.show', 'uses' => 'FormController@show']);
-Route::get('forms/{id}/design', ['as' => 'forms.design', 'uses' => 'FormController@getDesign']);
 Route::get('forms/{id}/share', ['as' => 'forms.share', 'uses' => 'FormController@getShare']);
 Route::get('forms/{id}/analyze', ['as' => 'forms.analyze', 'uses' => 'FormController@getAnalyze']);
 Route::get('forms/{id}/analyze/global_stats', ['as' => 'forms.global_stats', 'uses' => 'FormController@getGlobalStats']);
@@ -34,7 +33,6 @@ Route::get('forms/{id}/analyze/single_stats', ['as' => 'forms.single_stats', 'us
 Route::get('forms/{id}/analyze/response_stats', ['as' => 'forms.response_stats', 'uses' => 'FormController@getResponseStats']);
 Route::post('forms', ['as' => 'forms.store', 'uses' => 'FormController@store']);
 Route::put('forms/{id}', ['as' => 'forms.update', 'uses' => 'FormController@update']);
-Route::put('forms/{id}/design', ['as' => 'forms.design.update', 'uses' => 'FormController@putDesign']);
 Route::delete('forms/{id}', ['as' => 'forms.destroy', 'uses' => 'FormController@destroy']);
 
 Route::get('questions/create/{type}', ['as' => 'questions.create', 'uses' => 'QuestionController@create']);

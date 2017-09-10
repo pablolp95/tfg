@@ -2,13 +2,13 @@
 
 namespace App\Models\QuestionTypes;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\QuestionType;
 use Illuminate\Http\Request;
 use App\QuestionOption;
 use App\Events\DeleteOptionsQuestion;
 use App\Events\SaveQuestion;
 
-class Dropdown extends Model
+class Dropdown extends QuestionType
 {
     /**
      * The event map for the model.
@@ -21,35 +21,11 @@ class Dropdown extends Model
     ];
 
     /**
-     * Get the question model.
-     */
-    public function question()
-    {
-        return $this->morphOne('App\Question', 'typable');
-    }
-
-    /**
      * Get the options.
      */
     public function options()
     {
         return $this->morphMany('App\QuestionOption', 'typable');
-    }
-
-    /**
-     * Get the image model.
-     */
-    public function image()
-    {
-        return $this->morphOne('App\Image', 'question');
-    }
-
-    /**
-     * Get the video model.
-     */
-    public function video()
-    {
-        return $this->morphOne('App\Video', 'question');
     }
 
     /**
@@ -62,6 +38,7 @@ class Dropdown extends Model
     public function silentSave(Request $request, $save = true)
     {
         $this->required = $request->input('required');
+        $this->alphabetically = $request->input('alphabetically');
 
         ($save) ? $this->save() : null;
 

@@ -4,10 +4,10 @@ namespace App\Models\QuestionTypes;
 
 use App\Events\DeleteQuestion;
 use App\Events\SaveQuestion;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\QuestionType;
 use Illuminate\Http\Request;
 
-class Number extends Model
+class Number extends QuestionType
 {
     /**
      * The event map for the model.
@@ -18,30 +18,6 @@ class Number extends Model
         'deleted' => DeleteQuestion::class,
         'saved' => SaveQuestion::class,
     ];
-
-    /**
-     * Get the question model.
-     */
-    public function question()
-    {
-        return $this->morphOne('App\Question', 'typable');
-    }
-
-    /**
-     * Get the image model.
-     */
-    public function image()
-    {
-        return $this->morphOne('App\Image', 'question');
-    }
-
-    /**
-     * Get the video model.
-     */
-    public function video()
-    {
-        return $this->morphOne('App\Video', 'question');
-    }
 
     /**
      * Basic save operation used for update & store.
