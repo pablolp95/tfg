@@ -197,10 +197,27 @@ class FormController extends Controller
                             $count = 0;
                         }
                         break;
+                    case 'Legal':
+                    case 'YesNo':
+                        $results[$question->id] = array('labels' => array('No','Si'), 'count_options' => array());
+                        $count = 0;
+
+                        $count += $question->answers->filter(function ($model) {
+                            return $model->value == '0';
+                        })->count();
+                        array_push($results[$question->id]['count_options'], $count);
+                        $count = 0;
+
+                        $count += $question->answers->filter(function ($model) {
+                            return $model->value == '1';
+                        })->count();
+                        array_push($results[$question->id]['count_options'], $count);
+                        $count = 0;
+                        break;
                 }
             }
         }
-        //Log::info($results);
+        Log::info($results);
         return view('forms.analyze.global_stats', ['results' => $results, 'form' => $form])->render();
     }
 

@@ -8,9 +8,4 @@
     {!! Form::textarea("description", null, ["id" => "description", "class" => "form-control","rows" => "4"]) !!}
 </div>
 
-<div class="question-field">
-    {!! Form::label("button_text", "Texto del botón") !!}
-    {!! Form::text("button_text", isset($question) ? $question->typable->button_text : null, ["id" => "button_text"]) !!}
-</div>
-
 @include('forms.modals._image_video_model')

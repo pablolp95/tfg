@@ -28,8 +28,6 @@ class Declaration extends QuestionType
      */
     public function silentSave(Request $request, $save = true)
     {
-        $this->button_text = $request->input('button_text');
-
         ($save) ? $this->save() : null;
     }
 }

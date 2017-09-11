@@ -40,8 +40,6 @@ class MultipleChoice extends QuestionType
         $this->required = $request->input('required');
         $this->multiple = $request->input('multiple');
         $this->random = $request->input('random');
-        $this->vertical = $request->input('vertical');
-        $this->other = $request->input('other');
 
         ($save) ? $this->save() : null;
 
