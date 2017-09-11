@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
-class QuestionType extends Model
+abstract class QuestionType extends Model
 {
     /**
      * Get the question model.
@@ -29,4 +30,6 @@ class QuestionType extends Model
     {
         return $this->morphOne('App\Video', 'question');
     }
+
+    public abstract function silentSave(Request $request, $save = true);
 }

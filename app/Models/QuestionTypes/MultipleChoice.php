@@ -2,16 +2,14 @@
 
 namespace App\Models\QuestionTypes;
 
+use App\Events\DeleteOptionsQuestion;
 use App\Events\SaveQuestion;
 use App\Models\QuestionType;
 use Illuminate\Http\Request;
 use App\QuestionOption;
-use App\Events\DeleteOptionsQuestion;
-use Illuminate\Support\Facades\Log;
 
 class MultipleChoice extends QuestionType
 {
-
     /**
      * The event map for the model.
      *
@@ -44,8 +42,6 @@ class MultipleChoice extends QuestionType
         $this->random = $request->input('random');
         $this->vertical = $request->input('vertical');
         $this->other = $request->input('other');
-
-        Log::info($request);
 
         ($save) ? $this->save() : null;
 

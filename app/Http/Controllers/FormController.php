@@ -206,7 +206,6 @@ class FormController extends Controller
 
     public function getSingleStats($id) {
         $form = Form::findOrFail($id);
-
         return view('forms.analyze.single_stats', ['form' => $form])->render();
 
     }
