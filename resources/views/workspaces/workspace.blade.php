@@ -26,13 +26,13 @@
 @section('content')
     <div id="container-aux" class="container-fluid container-full-height">
         <div class="row row-eq-height row-full-height">
-            <div class="col-xs-9 form-wrapper"></div>
-            <div class="col-xs-3 members-sidebar"></div>
+            <div class="col-xs-12 form-wrapper"></div>
+            <!--<div class="col-xs-3 members-sidebar"></div>-->
         </div>
     </div>
     <div class="container-fluid">
         <div class="row row-eq-height">
-            <div class="col-xs-9 form-wrapper">
+            <div class="col-xs-12 form-wrapper">
                 <ul id="forms">
                     <li id="add-form" class="form-thumbnail" data-toggle="modal" data-target="#add-form-modal">
                         <div class="form-caption">
@@ -52,7 +52,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="col-xs-3 members-sidebar">
+            <!--<div class="col-xs-3 members-sidebar">
                 <div id="members-header">
                     <h4>Miembros</h4>
                     <div class="divisor"></div>
@@ -67,7 +67,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <!-- Add form modal -->

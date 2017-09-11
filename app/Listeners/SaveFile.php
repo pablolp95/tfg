@@ -61,7 +61,7 @@ class SaveFile
             }
 
             $name = $this->request->file('image_file')->getClientOriginalName();
-            $current_image->filename = $this->request->file('image_file')->store('public/images');
+            $current_image->filename = $this->request->file('image_file')->storeAs('public/images', $name);
             $current_image->original_filename = $name;
             $current_image->mime = $this->request->file('image_file')->extension();
 
