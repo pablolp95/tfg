@@ -1,5 +1,6 @@
 <?php
 $chart = Charts::create('pie', 'highcharts')
+    ->title('Gráfica')
     ->responsive(true);
 
     $chart->labels($result['labels']);

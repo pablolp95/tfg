@@ -1,6 +1,6 @@
 <div class="question-field">
     {!! Form::label("text", "Introducción") !!}
-    {!! Form::textarea("text", null, ["id" => "introduction", "class" => "form-control","rows" => "4"]) !!}
+    {!! Form::textarea("text", null, ["id" => "text", "class" => "form-control","rows" => "4"]) !!}
 </div>
 
 <div class="question-field">

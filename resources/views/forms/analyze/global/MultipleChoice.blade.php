@@ -1,6 +1,7 @@
 @if($question->typable->multiple)
     <?php
     $chart = Charts::multi('bar', 'material')
+        ->title('Gráfica')
         ->responsive(true);
 
     $chart->labels($result['labels']);
@@ -10,6 +11,7 @@
 @else
     <?php
     $chart = Charts::create('pie', 'highcharts')
+        ->title('Gráfica')
         ->responsive(true);
 
     $chart->labels($result['labels']);
