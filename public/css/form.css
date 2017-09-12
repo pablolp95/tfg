@@ -452,3 +452,7 @@ li.active > a{
     color: #4A9998;
     max-width: calc(100% - 150px);
 }
+
+.warning {
+    color: #b80000;
+}

@@ -9,18 +9,6 @@ $(document).ready(function(){
         window.location =  'http://' + window.location.host + '/forms/' + $(this).val() + '/build';
     });
 
-    //Establece la acción del formulario para eliminar un workspace
-    $('.delete-workspace').on('click', function (event) {
-        $('#delete-workspace-form').attr("action", "http://tfg.com/workspaces/" + $(this).closest('li').val());
-        $('#delete-workspace-modal').modal('toggle');
-        event.stopPropagation();
-    });
-
-    //Quita la acción del formulario para eliminar un workspace si se cancela la acción
-    $('#delete-workspace-modal').on('hidden.bs.modal', function () {
-        $('#delete-workspace-form').attr("action", "");
-    });
-
     //Establece el id del formulario a eliminar y muestra el modal de eliminación
     $('.delete-form').on('click', function (event) {
         $('#delete-form-button').attr("value", $(this).closest('li').val());
@@ -97,8 +85,9 @@ $(document).ready(function(){
                 $( ".workspace-item[value="+id+"] .workspace-item-name" ).html(name);
                 $("#received-message-success").fadeOut(4000);
             },
-            error: function() {
-                $('#received-message').html('<div id="received-message-error" class="alert alert-danger" role="alert">Ha ocurrido un error</div>');
+            error: function(error) {
+                console.log(error);
+                $('#received-message').html('<div id="received-message-error" class="alert alert-danger" role="alert">'+ error.responseJSON['error'] +'</div>');
                 $("#received-message-error").fadeOut(4000);
             },
             complete: function() {

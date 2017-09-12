@@ -37,8 +37,8 @@ $(document).ready(function(){
                 $('#received-message').html('<div id="received-message-success" class="alert alert-success" role="alert">Nombre actualizado</div>');
                 $("#received-message-success").fadeOut(4000);
             },
-            error: function(m) {
-                $('#received-message').html('<div id="received-message-error" class="alert alert-danger" role="alert">Ha ocurrido un error</div>');
+            error: function(error) {
+                $('#received-message').html('<div id="received-message-error" class="alert alert-danger" role="alert">'+ error.responseJSON['error'] +'</div>');
                 $("#received-message-error").fadeOut(4000);
                 console.log(m);
             },

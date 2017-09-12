@@ -77,28 +77,34 @@ $(document).ready(function () {
         var form = $('#question-form')[0]; // You need to use standard javascript object here
         var formData = new FormData(form);
 
-        //Petición de creación de la pregunta
-        $.ajax({
-            type: 'post',
-            url: '/questions',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(model_json) {
-                $model = JSON.parse(model_json);
-                question_id = "question-"+$model.id;
+        if($('.question-field #text').val().length === 0) {
+            $('.question-field #text').after('<span id="question_warning" class="warning">Debe establecer una pregunta</span>');
+        }
+        else {
+            //Petición de creación de la pregunta
+            $.ajax({
+                type: 'post',
+                url: '/questions',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(model_json) {
+                    $model = JSON.parse(model_json);
+                    question_id = "question-"+$model.id;
 
-                $('#null').attr('id',question_id);
-                $('#' + question_id + ' .question-label').html($model.text);
-                $('#' + question_id).attr('data-id', $model.id);
-                $('#add-question-modal').modal('hide');
-            },
-            error: function(m) {
-                console.log(m);
-                $('html').html(m.responseText);
-            }
-        });
+                    $('#null').attr('id',question_id);
+                    $('#' + question_id + ' .question-label').html($model.text);
+                    $('#' + question_id).attr('data-id', $model.id);
+                    $('#add-question-modal').modal('hide');
+                },
+                error: function(m) {
+                    console.log(m);
+                    $('html').html(m.responseText);
+                }
+            });
+        }
+
     });
 
     //Quita de la lista la pregunta si se cancela la operación de añadir una nueva
@@ -109,6 +115,13 @@ $(document).ready(function () {
         $('#add-question-modal').empty();
         if(!$("#form-questions").has("li.question-item").length) {
             $('.empty').css('height','145px');
+        }
+    });
+
+    //Funcion para quitar texto de warning
+    $(document).on('keyup','.question-field #text', function () {
+        if ($("#question_warning").length) {
+            $("#question_warning").remove();
         }
     });
 

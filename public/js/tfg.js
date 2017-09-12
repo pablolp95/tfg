@@ -28,4 +28,16 @@ $(document).ready(function(){
         window.location =  'http://' + window.location.host + '/workspaces/' + $(this).val();
     });
 
+    //Establece la acción del formulario para eliminar un workspace
+    $('.delete-workspace').on('click', function (event) {
+        $('#delete-workspace-form').attr("action", "http://tfg.com/workspaces/" + $(this).closest('li').val());
+        $('#delete-workspace-modal').modal('toggle');
+        event.stopPropagation();
+    });
+
+    //Quita la acción del formulario para eliminar un workspace si se cancela la acción
+    $('#delete-workspace-modal').on('hidden.bs.modal', function () {
+        $('#delete-workspace-form').attr("action", "");
+    });
+
 });

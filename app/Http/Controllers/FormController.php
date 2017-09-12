@@ -59,8 +59,20 @@ class FormController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //$form = Form::findOrFail($id);
+        //$this->silentSave($form, $request);
+
         $form = Form::findOrFail($id);
-        $this->silentSave($form, $request);
+        $owner_workspace = $form->workspace;
+        $owner_forms = $owner_workspace->forms->filter(function ($model) use ($request, $id) {
+            return $model->name == $request->input('name') && $model->id != $id;
+        })->count();
+        if($owner_forms == 0){
+            $this->silentSave($form, $request);
+        }
+        else {
+            return response()->json(['error' => 'Ya existe un formulario con ese nombre'], 409);
+        }
     }
 
     /**

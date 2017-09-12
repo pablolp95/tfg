@@ -59,7 +59,16 @@ class WorkspaceController extends Controller
     public function update(Request $request, $id)
     {
         $workspace = Workspace::findOrFail($id);
-        $this->silentSave($workspace, $request);
+        $owner = Auth::user();
+        $user_workspaces = $owner->workspaces->filter(function ($model) use ($request, $id) {
+                                return $model->name == $request->input('name') && $model->id != $id;
+                            })->count();
+        if($user_workspaces == 0){
+            $this->silentSave($workspace, $request);
+        }
+        else {
+            return response()->json(['error' => 'Ya existe un espacio de trabajo con ese nombre'], 409);
+        }
     }
 
     /**
